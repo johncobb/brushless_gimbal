@@ -1,0 +1,1259 @@
+Archive member included because of file (symbol)
+
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_exit.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o (exit)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_tablejump.o)
+                              ./i2c/twi/twi.o (__tablejump2__)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_copy_data.o)
+                              ./pwm/soft_pwm.o (__do_copy_data)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_clear_bss.o)
+                              ./util/clock.o (__do_clear_bss)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(addsf3.o)
+                              ./math/fast_math.o (__subsf3)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(addsf3x.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(addsf3.o) (__addsf3x)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(cmpsf2.o)
+                              ./util/log.o (__ltsf2)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(divsf3.o)
+                              ./math/fast_math.o (__divsf3)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(divsf3x.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(divsf3.o) (__divsf3x)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fixunssfsi.o)
+                              ./util/log.o (__fixunssfsi)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(floatsisf.o)
+                              ./imu/gyro.o (__floatunsisf)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_cmp.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(cmpsf2.o) (__fp_cmp)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_inf.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(addsf3x.o) (__fp_inf)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_nan.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(addsf3x.o) (__fp_nan)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_pscA.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(addsf3x.o) (__fp_pscA)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_pscB.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(addsf3x.o) (__fp_pscB)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_round.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(addsf3.o) (__fp_round)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_split3.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(addsf3x.o) (__fp_split3)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_zero.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(addsf3x.o) (__fp_zero)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(gesf2.o)
+                              ./math/fast_math.o (__gesf2)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(mulsf3.o)
+                              ./util/log.o (__mulsf3)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(mulsf3x.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(mulsf3.o) (__mulsf3x)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(fdevopen.o)
+                              ./util/log.o (fdevopen)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(iob.o)
+                              ./util/log.o (__iob)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(vfprintf_p.o)
+                              ./util/log.o (vfprintf_P)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(vfprintf_p.o) (vfprintf)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(calloc.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(fdevopen.o) (calloc)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(malloc.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(calloc.o) (malloc)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(vfprintf_std.o) (strnlen_P)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(memset.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(calloc.o) (memset)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(strnlen.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(vfprintf_std.o) (strnlen)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(fputc.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(vfprintf_std.o) (fputc)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(vfprintf_std.o) (__ultoa_invert)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_prologue.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(vfprintf_std.o) (__prologue_saves__)
+/usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_epilogue.o)
+                              /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(vfprintf_std.o) (__epilogue_restores__)
+
+Allocating common symbols
+Common symbol       size              file
+
+resolution_divider  0x4               ./util/clock.o
+debug_out_cb        0x2               ./util/log.o
+gy                  0x2               ./main.o
+az                  0x2               ./main.o
+my                  0x2               ./main.o
+__brkval            0x2               /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(malloc.o)
+ax                  0x2               ./main.o
+compbuff            0x4               ./pwm/soft_pwm.o
+debug_rx_cb         0x2               ./util/log.o
+imu_buffer          0xe               ./imu/gyro.o
+rxBuffer            0x20              ./i2c/i2c.o
+clock_millis        0x4               ./util/clock.o
+compare             0x4               ./pwm/soft_pwm.o
+txBuffer            0x20              ./i2c/i2c.o
+gz                  0x2               ./main.o
+mz                  0x2               ./main.o
+__flp               0x2               /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(malloc.o)
+gx                  0x2               ./main.o
+ay                  0x2               ./main.o
+__iob               0x6               /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(iob.o)
+mx                  0x2               ./main.o
+config              0x8               ./util/clock.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+user_signatures  0x00850000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+LOAD ./util/clock.o
+LOAD ./util/config.o
+LOAD ./util/log.o
+LOAD ./pwm/pwm.o
+LOAD ./pwm/soft_pwm.o
+LOAD ./math/fast_math.o
+LOAD ./imu/gyro.o
+LOAD ./imu/imu.o
+LOAD ./imu/mpu6050.o
+LOAD ./i2c/twi/twi.o
+LOAD ./i2c/i2c.o
+LOAD ./i2c/i2c_driver.o
+LOAD ./main.o
+START GROUP
+LOAD /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a
+LOAD /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a
+LOAD /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a
+END GROUP
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x4116
+ *(.vectors)
+ .vectors       0x00000000       0x68 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ .progmem.gcc_sw_table.__vector_24
+                0x00000068      0x1f2 ./i2c/twi/twi.o
+                0x0000025a                . = ALIGN (0x2)
+                0x0000025a                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x0000025a        0x0 linker stubs
+ *(.trampolines*)
+                0x0000025a                __trampolines_end = .
+ *(.progmem*)
+ .progmem.data._tag
+                0x0000025a        0x8 ./util/log.o
+ .progmem.data.DEBUG_hex
+                0x00000262       0x11 ./util/log.o
+                0x00000262                DEBUG_hex
+ .progmem.data.__c.2284
+                0x00000273        0xe ./util/log.o
+ .progmem.data._tag
+                0x00000281        0x7 ./imu/gyro.o
+ .progmem.data.__c.1890
+                0x00000288       0x27 ./imu/gyro.o
+ .progmem.data._tag
+                0x000002af        0x6 ./imu/imu.o
+ .progmem.data.__c.1882
+                0x000002b5        0xb ./imu/imu.o
+ .progmem.data._tag
+                0x000002c0        0xa ./imu/mpu6050.o
+ .progmem.data.__c.1887
+                0x000002ca       0x1c ./imu/mpu6050.o
+ .progmem.data.__c.1889
+                0x000002e6       0x1b ./imu/mpu6050.o
+ .progmem.data.__c.1895
+                0x00000301       0x25 ./imu/mpu6050.o
+ .progmem.data.__c.1897
+                0x00000326       0x24 ./imu/mpu6050.o
+ .progmem.data.__c.1903
+                0x0000034a       0x26 ./imu/mpu6050.o
+ .progmem.data.__c.1905
+                0x00000370       0x25 ./imu/mpu6050.o
+ .progmem.data.__c.1911
+                0x00000395       0x1d ./imu/mpu6050.o
+ .progmem.data.__c.1913
+                0x000003b2       0x1c ./imu/mpu6050.o
+ .progmem.data.__c.1917
+                0x000003ce       0x14 ./imu/mpu6050.o
+ .progmem.data._tag
+                0x000003e2        0x7 ./main.o
+ .progmem.data.__c.2029
+                0x000003e9        0xb ./main.o
+ .progmem.data.__c.2042
+                0x000003f4       0x1c ./main.o
+ .progmem.data.__c.2044
+                0x00000410        0xb ./main.o
+ .progmem.data.__c.2046
+                0x0000041b        0xb ./main.o
+ .progmem.data.__c.2049
+                0x00000426       0x13 ./main.o
+ .progmem.data.__c.2054
+                0x00000439        0x8 ./main.o
+ .progmem.data.__c.2056
+                0x00000441        0x4 ./main.o
+ .progmem.data.__c.2058
+                0x00000445        0x4 ./main.o
+ .progmem.data.__c.2060
+                0x00000449        0x4 ./main.o
+ .progmem.data.__c.2062
+                0x0000044d        0x4 ./main.o
+ .progmem.data.__c.2064
+                0x00000451        0x4 ./main.o
+ .progmem.data.__c.2066
+                0x00000455        0x4 ./main.o
+ .progmem.data.__c.2068
+                0x00000459        0x4 ./main.o
+ .progmem.data.__c.2070
+                0x0000045d        0x4 ./main.o
+ .progmem.data.__c.2072
+                0x00000461        0x4 ./main.o
+ .progmem.data.__c.2074
+                0x00000465        0x3 ./main.o
+                0x00000468                . = ALIGN (0x2)
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000468                __ctors_start = .
+ *(.ctors)
+                0x00000468                __ctors_end = .
+                0x00000468                __dtors_start = .
+ *(.dtors)
+                0x00000468                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000468        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+                0x00000468                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000468        0xc /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000474       0x16 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_copy_data.o)
+                0x00000474                __do_copy_data
+ .init4         0x0000048a       0x10 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_clear_bss.o)
+                0x0000048a                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000049a        0x8 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+ *(.init9)
+ *(.text)
+ .text          0x000004a2        0x4 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+                0x000004a2                __vector_20
+                0x000004a2                __vector_1
+                0x000004a2                __vector_12
+                0x000004a2                __bad_interrupt
+                0x000004a2                __vector_6
+                0x000004a2                __vector_3
+                0x000004a2                __vector_23
+                0x000004a2                __vector_25
+                0x000004a2                __vector_11
+                0x000004a2                __vector_17
+                0x000004a2                __vector_19
+                0x000004a2                __vector_7
+                0x000004a2                __vector_5
+                0x000004a2                __vector_4
+                0x000004a2                __vector_9
+                0x000004a2                __vector_2
+                0x000004a2                __vector_21
+                0x000004a2                __vector_15
+                0x000004a2                __vector_8
+                0x000004a2                __vector_10
+                0x000004a2                __vector_16
+                0x000004a2                __vector_22
+ .text          0x000004a6        0x0 ./util/clock.o
+ .text          0x000004a6        0x0 ./util/config.o
+ .text          0x000004a6        0x0 ./util/log.o
+ .text          0x000004a6        0x0 ./pwm/pwm.o
+ .text          0x000004a6        0x0 ./pwm/soft_pwm.o
+ .text          0x000004a6        0x0 ./math/fast_math.o
+ .text          0x000004a6        0x0 ./imu/gyro.o
+ .text          0x000004a6        0x0 ./imu/imu.o
+ .text          0x000004a6        0x0 ./imu/mpu6050.o
+ .text          0x000004a6        0x0 ./i2c/twi/twi.o
+ .text          0x000004a6        0x0 ./i2c/i2c.o
+ .text          0x000004a6        0x0 ./i2c/i2c_driver.o
+ .text          0x000004a6        0x0 ./main.o
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_exit.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_tablejump.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_copy_data.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_clear_bss.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(addsf3.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(addsf3x.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(cmpsf2.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(divsf3.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(divsf3x.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fixunssfsi.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(floatsisf.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_cmp.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_inf.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_nan.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_pscA.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_pscB.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_round.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_split3.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_zero.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(gesf2.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(mulsf3.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(mulsf3x.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(fdevopen.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(iob.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(vfprintf_p.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(calloc.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(malloc.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(memset.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(strnlen.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(fputc.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_prologue.o)
+ .text          0x000004a6        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_epilogue.o)
+                0x000004a6                . = ALIGN (0x2)
+ *(.text.*)
+ .text.clock_init
+                0x000004a6       0x46 ./util/clock.o
+                0x000004a6                clock_init
+ .text.clock_time
+                0x000004ec       0x22 ./util/clock.o
+                0x000004ec                clock_time
+ .text.delay_millis
+                0x0000050e       0x6c ./util/clock.o
+                0x0000050e                delay_millis
+ .text.__vector_14
+                0x0000057a       0x5a ./util/clock.o
+                0x0000057a                __vector_14
+ .text.isr_tick
+                0x000005d4       0x34 ./util/clock.o
+                0x000005d4                isr_tick
+ .text._debug_init
+                0x00000608       0x88 ./util/log.o
+                0x00000608                _debug_init
+ .text.__vector_18
+                0x00000690       0x7c ./util/log.o
+                0x00000690                __vector_18
+ .text._debug_set_rx_cb
+                0x0000070c       0x24 ./util/log.o
+                0x0000070c                _debug_set_rx_cb
+ .text._debug_set_out_cb
+                0x00000730       0x24 ./util/log.o
+                0x00000730                _debug_set_out_cb
+ .text._debug_putch
+                0x00000754       0x42 ./util/log.o
+                0x00000754                _debug_putch
+ .text._debug_stringz
+                0x00000796       0x62 ./util/log.o
+                0x00000796                _debug_stringz
+ .text._debug_byte
+                0x000007f8       0x34 ./util/log.o
+                0x000007f8                _debug_byte
+ .text._debug_byte_as_hex
+                0x0000082c       0xa8 ./util/log.o
+                0x0000082c                _debug_byte_as_hex
+ .text._debug_hex_dump
+                0x000008d4       0x5a ./util/log.o
+                0x000008d4                _debug_hex_dump
+ .text._debug_log
+                0x0000092e       0x32 ./util/log.o
+                0x0000092e                _debug_log
+ .text.debug_test
+                0x00000960      0x32a ./util/log.o
+                0x00000960                debug_test
+ .text.pwm_init
+                0x00000c8a      0x11c ./pwm/pwm.o
+                0x00000c8a                pwm_init
+ .text.pwm_setval
+                0x00000da6       0x1e ./pwm/pwm.o
+                0x00000da6                pwm_setval
+ .text.__vector_13
+                0x00000dc4       0xc2 ./pwm/pwm.o
+                0x00000dc4                __vector_13
+ .text.timer0_isr_emulation
+                0x00000e86       0x22 ./pwm/pwm.o
+                0x00000e86                timer0_isr_emulation
+ .text.pwm_tick
+                0x00000ea8       0x10 ./pwm/pwm.o
+                0x00000ea8                pwm_tick
+ .text.soft_pwm_init
+                0x00000eb8       0x78 ./pwm/soft_pwm.o
+                0x00000eb8                soft_pwm_init
+ .text.soft_pwm_tick
+                0x00000f30        0xe ./pwm/soft_pwm.o
+                0x00000f30                soft_pwm_tick
+ .text.soft_pwm_setval
+                0x00000f3e       0x18 ./pwm/soft_pwm.o
+                0x00000f3e                soft_pwm_setval
+ .text.constrain_uint32
+                0x00000f56       0xa2 ./math/fast_math.o
+                0x00000f56                constrain_uint32
+ .text.fast_arc_tan
+                0x00000ff8       0xea ./math/fast_math.o
+                0x00000ff8                fast_arc_tan
+ .text.fast_arc_tan2
+                0x000010e2      0x2c2 ./math/fast_math.o
+                0x000010e2                fast_arc_tan2
+ .text.fast_arc_tan2_deg1000
+                0x000013a4       0x76 ./math/fast_math.o
+                0x000013a4                fast_arc_tan2_deg1000
+ .text.util_lowpass_filter
+                0x0000141a       0xb4 ./math/fast_math.o
+                0x0000141a                util_lowpass_filter
+ .text.util_lowpass3rd_filter
+                0x000014ce       0xd2 ./math/fast_math.o
+                0x000014ce                util_lowpass3rd_filter
+ .text.crc_slow
+                0x000015a0       0x66 ./math/fast_math.o
+                0x000015a0                crc_slow
+ .text.init_resolution_divder
+                0x00001606       0x26 ./imu/gyro.o
+                0x00001606                init_resolution_divder
+ .text.gyro_offset_calibration
+                0x0000162c      0x2d0 ./imu/gyro.o
+                0x0000162c                gyro_offset_calibration
+ .text.imu_init
+                0x000018fc       0x36 ./imu/imu.o
+                0x000018fc                imu_init
+ .text.imu_test
+                0x00001932       0x12 ./imu/imu.o
+                0x00001932                imu_test
+ .text.imu_read6
+                0x00001944       0x6e ./imu/imu.o
+                0x00001944                imu_read6
+ .text.imu_read9
+                0x000019b2       0xa4 ./imu/imu.o
+                0x000019b2                imu_read9
+ .text.mpu6050_init
+                0x00001a56       0x26 ./imu/mpu6050.o
+                0x00001a56                mpu6050_init
+ .text.mpu6050_test
+                0x00001a7c       0x1c ./imu/mpu6050.o
+                0x00001a7c                mpu6050_test
+ .text.set_clock_source
+                0x00001a98       0x7c ./imu/mpu6050.o
+                0x00001a98                set_clock_source
+ .text.set_full_scale_gyro_range
+                0x00001b14       0x7c ./imu/mpu6050.o
+                0x00001b14                set_full_scale_gyro_range
+ .text.set_full_scale_accel_range
+                0x00001b90       0x7c ./imu/mpu6050.o
+                0x00001b90                set_full_scale_accel_range
+ .text.set_sleep_enabled
+                0x00001c0c       0x78 ./imu/mpu6050.o
+                0x00001c0c                set_sleep_enabled
+ .text.get_device_id
+                0x00001c84       0x76 ./imu/mpu6050.o
+                0x00001c84                get_device_id
+ .text.imu_getmotion6
+                0x00001cfa      0x13a ./imu/mpu6050.o
+                0x00001cfa                imu_getmotion6
+ .text.imu_getmotion9
+                0x00001e34      0x2ee ./imu/mpu6050.o
+                0x00001e34                imu_getmotion9
+ .text.twi_init
+                0x00002122       0x54 ./i2c/twi/twi.o
+                0x00002122                twi_init
+ .text.twi_setAddress
+                0x00002176       0x20 ./i2c/twi/twi.o
+                0x00002176                twi_setAddress
+ .text.twi_readFrom
+                0x00002196       0xf8 ./i2c/twi/twi.o
+                0x00002196                twi_readFrom
+ .text.twi_writeTo
+                0x0000228e      0x11a ./i2c/twi/twi.o
+                0x0000228e                twi_writeTo
+ .text.twi_transmit
+                0x000023a8       0x70 ./i2c/twi/twi.o
+                0x000023a8                twi_transmit
+ .text.twi_attachSlaveRxEvent
+                0x00002418       0x24 ./i2c/twi/twi.o
+                0x00002418                twi_attachSlaveRxEvent
+ .text.twi_attachSlaveTxEvent
+                0x0000243c       0x24 ./i2c/twi/twi.o
+                0x0000243c                twi_attachSlaveTxEvent
+ .text.twi_reply
+                0x00002460       0x30 ./i2c/twi/twi.o
+                0x00002460                twi_reply
+ .text.twi_stop
+                0x00002490       0x34 ./i2c/twi/twi.o
+                0x00002490                twi_stop
+ .text.twi_releaseBus
+                0x000024c4       0x1c ./i2c/twi/twi.o
+                0x000024c4                twi_releaseBus
+ .text.__vector_24
+                0x000024e0      0x2b2 ./i2c/twi/twi.o
+                0x000024e0                __vector_24
+ .text.i2c_begin
+                0x00002792       0x22 ./i2c/i2c.o
+                0x00002792                i2c_begin
+ .text.i2c_begin_address
+                0x000027b4       0x1e ./i2c/i2c.o
+                0x000027b4                i2c_begin_address
+ .text.i2c_begin_transmission
+                0x000027d2       0x28 ./i2c/i2c.o
+                0x000027d2                i2c_begin_transmission
+ .text.i2c_request_from
+                0x000027fa       0x46 ./i2c/i2c.o
+                0x000027fa                i2c_request_from
+ .text.i2c_end_transmission
+                0x00002840       0x40 ./i2c/i2c.o
+                0x00002840                i2c_end_transmission
+ .text.i2c_write_byte
+                0x00002880       0x5e ./i2c/i2c.o
+                0x00002880                i2c_write_byte
+ .text.i2c_write
+                0x000028de       0x74 ./i2c/i2c.o
+                0x000028de                i2c_write
+ .text.i2c_available
+                0x00002952       0x1c ./i2c/i2c.o
+                0x00002952                i2c_available
+ .text.i2c_read
+                0x0000296e       0x40 ./i2c/i2c.o
+                0x0000296e                i2c_read
+ .text.i2c_peek
+                0x000029ae       0x36 ./i2c/i2c.o
+                0x000029ae                i2c_peek
+ .text.readByte
+                0x000029e4       0x4a ./i2c/i2c_driver.o
+                0x000029e4                readByte
+ .text.readBytes
+                0x00002a2e      0x106 ./i2c/i2c_driver.o
+                0x00002a2e                readBytes
+ .text.writeByte
+                0x00002b34       0x2e ./i2c/i2c_driver.o
+                0x00002b34                writeByte
+ .text.writeBytes
+                0x00002b62       0x78 ./i2c/i2c_driver.o
+                0x00002b62                writeBytes
+ .text.writeBit
+                0x00002bda       0x8c ./i2c/i2c_driver.o
+                0x00002bda                writeBit
+ .text.writeBits
+                0x00002c66       0xe0 ./i2c/i2c_driver.o
+                0x00002c66                writeBits
+ .text.readBit  0x00002d46       0x76 ./i2c/i2c_driver.o
+                0x00002d46                readBit
+ .text.readBits
+                0x00002dbc       0xd8 ./i2c/i2c_driver.o
+                0x00002dbc                readBits
+ .text.terminal_in_cb
+                0x00002e94       0x4e ./main.o
+                0x00002e94                terminal_in_cb
+ .text.main     0x00002ee2      0x1aa ./main.o
+                0x00002ee2                main
+ .text.read_imu
+                0x0000308c      0x3a8 ./main.o
+                0x0000308c                read_imu
+ .text.libgcc.mul
+                0x00003434        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_exit.o)
+ .text.libgcc.div
+                0x00003434        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_exit.o)
+ .text.libgcc   0x00003434        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_exit.o)
+ .text.libgcc.prologue
+                0x00003434        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_exit.o)
+ .text.libgcc.builtins
+                0x00003434        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_exit.o)
+ .text.libgcc.fmul
+                0x00003434        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_exit.o)
+ .text.libgcc.fixed
+                0x00003434        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_exit.o)
+ .text.libgcc.mul
+                0x00003434        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_tablejump.o)
+ .text.libgcc.div
+                0x00003434        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_tablejump.o)
+ .text.libgcc   0x00003434        0xc /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_tablejump.o)
+                0x00003434                __tablejump2__
+                0x00003438                __tablejump__
+ .text.libgcc.prologue
+                0x00003440        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_tablejump.o)
+ .text.libgcc.builtins
+                0x00003440        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_tablejump.o)
+ .text.libgcc.fmul
+                0x00003440        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_tablejump.o)
+ .text.libgcc.fixed
+                0x00003440        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_tablejump.o)
+ .text.libgcc.mul
+                0x00003440        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x00003440        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc   0x00003440        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x00003440        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x00003440        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x00003440        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x00003440        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x00003440        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x00003440        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00003440        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x00003440        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x00003440        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x00003440        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc.fixed
+                0x00003440        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_clear_bss.o)
+ .text.avr-libc.fplib
+                0x00003440        0xa /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(addsf3.o)
+                0x00003440                __subsf3
+                0x00003442                __addsf3
+ .text.avr-libc.fplib
+                0x0000344a       0xc0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(addsf3x.o)
+                0x00003464                __addsf3x
+ .text.avr-libc.fplib
+                0x0000350a        0x8 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(cmpsf2.o)
+                0x0000350a                __lesf2
+                0x0000350a                __nesf2
+                0x0000350a                __eqsf2
+                0x0000350a                __cmpsf2
+                0x0000350a                __ltsf2
+ .text.avr-libc.fplib
+                0x00003512        0x4 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(divsf3.o)
+                0x00003512                __divsf3
+ .text.avr-libc.fplib
+                0x00003516       0xcc /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(divsf3x.o)
+                0x0000352c                __divsf3x
+                0x00003530                __divsf3_pse
+ .text.avr-libc.fplib
+                0x000035e2       0x58 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fixunssfsi.o)
+                0x000035e2                __fixunssfsi
+ .text.avr-libc.fplib
+                0x0000363a       0x7a /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(floatsisf.o)
+                0x0000363a                __floatunsisf
+                0x0000363e                __floatsisf
+ .text.avr-libc.fplib
+                0x000036b4       0x48 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_cmp.o)
+                0x000036b4                __fp_cmp
+ .text.avr-libc.fplib
+                0x000036fc        0xc /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_inf.o)
+                0x000036fc                __fp_inf
+ .text.avr-libc.fplib
+                0x00003708        0x6 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_nan.o)
+                0x00003708                __fp_nan
+ .text.avr-libc.fplib
+                0x0000370e        0xe /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_pscA.o)
+                0x0000370e                __fp_pscA
+ .text.avr-libc.fplib
+                0x0000371c        0xe /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_pscB.o)
+                0x0000371c                __fp_pscB
+ .text.avr-libc.fplib
+                0x0000372a       0x22 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_round.o)
+                0x0000372a                __fp_round
+ .text.avr-libc.fplib
+                0x0000374c       0x44 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_split3.o)
+                0x0000374c                __fp_split3
+                0x0000375c                __fp_splitA
+ .text.avr-libc.fplib
+                0x00003790        0xe /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_zero.o)
+                0x00003790                __fp_zero
+                0x00003792                __fp_szero
+ .text.avr-libc.fplib
+                0x0000379e        0x8 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(gesf2.o)
+                0x0000379e                __gtsf2
+                0x0000379e                __gesf2
+ .text.avr-libc.fplib
+                0x000037a6        0x4 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(mulsf3.o)
+                0x000037a6                __mulsf3
+ .text.avr-libc.fplib
+                0x000037aa       0xc2 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(mulsf3x.o)
+                0x000037be                __mulsf3x
+                0x000037c2                __mulsf3_pse
+ .text.avr-libc
+                0x0000386c       0x96 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(fdevopen.o)
+                0x0000386c                fdevopen
+ .text.avr-libc
+                0x00003902       0x1e /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(vfprintf_p.o)
+                0x00003902                vfprintf_P
+ .text.avr-libc
+                0x00003920      0x3a4 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+                0x00003920                vfprintf
+ .text.avr-libc
+                0x00003cc4       0x38 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(calloc.o)
+                0x00003cc4                calloc
+ .text.avr-libc
+                0x00003cfc      0x24e /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(malloc.o)
+                0x00003cfc                malloc
+                0x00003e2c                free
+ .text.avr-libc
+                0x00003f4a       0x16 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
+                0x00003f4a                strnlen_P
+ .text.avr-libc
+                0x00003f60        0xe /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(memset.o)
+                0x00003f60                memset
+ .text.avr-libc
+                0x00003f6e       0x16 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(strnlen.o)
+                0x00003f6e                strnlen
+ .text.avr-libc
+                0x00003f84       0x64 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(fputc.o)
+                0x00003f84                fputc
+ .text.avr-libc
+                0x00003fe8       0xbc /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
+                0x00003fe8                __ultoa_invert
+ .text.libgcc.mul
+                0x000040a4        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_prologue.o)
+ .text.libgcc.div
+                0x000040a4        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_prologue.o)
+ .text.libgcc   0x000040a4        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_prologue.o)
+ .text.libgcc.prologue
+                0x000040a4       0x38 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_prologue.o)
+                0x000040a4                __prologue_saves__
+ .text.libgcc.builtins
+                0x000040dc        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_prologue.o)
+ .text.libgcc.fmul
+                0x000040dc        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_prologue.o)
+ .text.libgcc.fixed
+                0x000040dc        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_prologue.o)
+ .text.libgcc.mul
+                0x000040dc        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_epilogue.o)
+ .text.libgcc.div
+                0x000040dc        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_epilogue.o)
+ .text.libgcc   0x000040dc        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_epilogue.o)
+ .text.libgcc.prologue
+                0x000040dc       0x36 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_epilogue.o)
+                0x000040dc                __epilogue_restores__
+ .text.libgcc.builtins
+                0x00004112        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_epilogue.o)
+ .text.libgcc.fmul
+                0x00004112        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_epilogue.o)
+ .text.libgcc.fixed
+                0x00004112        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_epilogue.o)
+                0x00004112                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00004112        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_exit.o)
+                0x00004112                exit
+                0x00004112                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00004112        0x4 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_exit.o)
+ *(.fini0)
+                0x00004116                _etext = .
+
+.data           0x00800100        0xe load address 0x00004116
+                0x00800100                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+ .data          0x00800100        0x0 ./util/clock.o
+ .data          0x00800100        0x0 ./util/config.o
+ .data          0x00800100        0x0 ./util/log.o
+ .data          0x00800100        0x0 ./pwm/pwm.o
+ .data          0x00800100        0x0 ./pwm/soft_pwm.o
+ .data          0x00800100        0x0 ./math/fast_math.o
+ .data          0x00800100        0x0 ./imu/gyro.o
+ .data          0x00800100        0x0 ./imu/imu.o
+ .data          0x00800100        0x0 ./imu/mpu6050.o
+ .data          0x00800100        0x0 ./i2c/twi/twi.o
+ .data          0x00800100        0x0 ./i2c/i2c.o
+ .data          0x00800100        0x0 ./i2c/i2c_driver.o
+ .data          0x00800100        0x0 ./main.o
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_exit.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_tablejump.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_copy_data.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_clear_bss.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(addsf3.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(addsf3x.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(cmpsf2.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(divsf3.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(divsf3x.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fixunssfsi.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(floatsisf.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_cmp.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_inf.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_nan.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_pscA.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_pscB.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_round.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_split3.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_zero.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(gesf2.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(mulsf3.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(mulsf3x.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(fdevopen.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(iob.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(vfprintf_p.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+ .data          0x00800100        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(calloc.o)
+ .data          0x00800100        0x6 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(malloc.o)
+                0x00800100                __malloc_heap_end
+                0x00800102                __malloc_heap_start
+                0x00800104                __malloc_margin
+ .data          0x00800106        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
+ .data          0x00800106        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(memset.o)
+ .data          0x00800106        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(strnlen.o)
+ .data          0x00800106        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(fputc.o)
+ .data          0x00800106        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
+ .data          0x00800106        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_prologue.o)
+ .data          0x00800106        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_epilogue.o)
+ *(.data*)
+ .data.pwm_to_motor
+                0x00800106        0x1 ./pwm/soft_pwm.o
+                0x00800106                pwm_to_motor
+ .data.motor0   0x00800107        0x1 ./pwm/soft_pwm.o
+                0x00800107                motor0
+ .data.motor1   0x00800108        0x1 ./pwm/soft_pwm.o
+                0x00800108                motor1
+ .data.motor2   0x00800109        0x1 ./pwm/soft_pwm.o
+                0x00800109                motor2
+ .data.motor3   0x0080010a        0x1 ./pwm/soft_pwm.o
+                0x0080010a                motor3
+ .data.imu_address
+                0x0080010b        0x1 ./imu/imu.o
+                0x0080010b                imu_address
+ .data.readTimeout
+                0x0080010c        0x2 ./i2c/i2c_driver.o
+                0x0080010c                readTimeout
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x0080010e                . = ALIGN (0x2)
+                0x0080010e                _edata = .
+                0x0080010e                PROVIDE (__data_end, .)
+
+.bss            0x0080010e       0xfd
+                0x0080010e                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+ .bss           0x0080010e        0x0 ./util/clock.o
+ .bss           0x0080010e        0x0 ./util/config.o
+ .bss           0x0080010e        0x0 ./util/log.o
+ .bss           0x0080010e        0x0 ./pwm/pwm.o
+ .bss           0x0080010e        0x0 ./pwm/soft_pwm.o
+ .bss           0x0080010e        0x0 ./math/fast_math.o
+ .bss           0x0080010e        0x0 ./imu/gyro.o
+ .bss           0x0080010e        0x0 ./imu/imu.o
+ .bss           0x0080010e        0x0 ./imu/mpu6050.o
+ .bss           0x0080010e        0x0 ./i2c/twi/twi.o
+ .bss           0x0080010e        0x0 ./i2c/i2c.o
+ .bss           0x0080010e        0x0 ./i2c/i2c_driver.o
+ .bss           0x0080010e        0x0 ./main.o
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_exit.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_tablejump.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_copy_data.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_clear_bss.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(addsf3.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(addsf3x.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(cmpsf2.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(divsf3.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(divsf3x.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fixunssfsi.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(floatsisf.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_cmp.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_inf.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_nan.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_pscA.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_pscB.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_round.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_split3.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(fp_zero.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(gesf2.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(mulsf3.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libm.a(mulsf3x.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(fdevopen.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(iob.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(vfprintf_p.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(calloc.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(malloc.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(memset.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(strnlen.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(fputc.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_prologue.o)
+ .bss           0x0080010e        0x0 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_epilogue.o)
+ *(.bss*)
+ .bss.dutyCycle
+                0x0080010e        0x1 ./pwm/pwm.o
+                0x0080010e                dutyCycle
+ .bss.frequency_counter
+                0x0080010f        0x1 ./pwm/pwm.o
+                0x0080010f                frequency_counter
+ .bss.twi_state
+                0x00800110        0x1 ./i2c/twi/twi.o
+ .bss.twi_slarw
+                0x00800111        0x1 ./i2c/twi/twi.o
+ .bss.twi_sendStop
+                0x00800112        0x1 ./i2c/twi/twi.o
+ .bss.twi_inRepStart
+                0x00800113        0x1 ./i2c/twi/twi.o
+ .bss.twi_onSlaveTransmit
+                0x00800114        0x2 ./i2c/twi/twi.o
+ .bss.twi_onSlaveReceive
+                0x00800116        0x2 ./i2c/twi/twi.o
+ .bss.twi_masterBuffer
+                0x00800118       0x20 ./i2c/twi/twi.o
+ .bss.twi_masterBufferIndex
+                0x00800138        0x1 ./i2c/twi/twi.o
+ .bss.twi_masterBufferLength
+                0x00800139        0x1 ./i2c/twi/twi.o
+ .bss.twi_txBuffer
+                0x0080013a       0x20 ./i2c/twi/twi.o
+ .bss.twi_txBufferIndex
+                0x0080015a        0x1 ./i2c/twi/twi.o
+ .bss.twi_txBufferLength
+                0x0080015b        0x1 ./i2c/twi/twi.o
+ .bss.twi_rxBuffer
+                0x0080015c       0x20 ./i2c/twi/twi.o
+ .bss.twi_rxBufferIndex
+                0x0080017c        0x1 ./i2c/twi/twi.o
+ .bss.twi_error
+                0x0080017d        0x1 ./i2c/twi/twi.o
+ .bss.rxBufferIndex
+                0x0080017e        0x1 ./i2c/i2c.o
+                0x0080017e                rxBufferIndex
+ .bss.rxBufferLength
+                0x0080017f        0x1 ./i2c/i2c.o
+                0x0080017f                rxBufferLength
+ .bss.txAddress
+                0x00800180        0x1 ./i2c/i2c.o
+                0x00800180                txAddress
+ .bss.txBufferIndex
+                0x00800181        0x1 ./i2c/i2c.o
+                0x00800181                txBufferIndex
+ .bss.txBufferLength
+                0x00800182        0x1 ./i2c/i2c.o
+                0x00800182                txBufferLength
+ .bss.transmitting
+                0x00800183        0x1 ./i2c/i2c.o
+                0x00800183                transmitting
+ .bss.term_in   0x00800184        0x1 ./main.o
+                0x00800184                term_in
+ *(COMMON)
+ COMMON         0x00800185       0x10 ./util/clock.o
+                0x00800185                resolution_divider
+                0x00800189                clock_millis
+                0x0080018d                config
+ COMMON         0x00800195        0x4 ./util/log.o
+                0x00800195                debug_out_cb
+                0x00800197                debug_rx_cb
+ COMMON         0x00800199        0x8 ./pwm/soft_pwm.o
+                0x00800199                compbuff
+                0x0080019d                compare
+ COMMON         0x008001a1        0xe ./imu/gyro.o
+                0x008001a1                imu_buffer
+ COMMON         0x008001af       0x40 ./i2c/i2c.o
+                0x008001af                rxBuffer
+                0x008001cf                txBuffer
+ COMMON         0x008001ef       0x12 ./main.o
+                0x008001ef                gy
+                0x008001f1                az
+                0x008001f3                my
+                0x008001f5                ax
+                0x008001f7                gz
+                0x008001f9                mz
+                0x008001fb                gx
+                0x008001fd                ay
+                0x008001ff                mx
+ COMMON         0x00800201        0x6 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(iob.o)
+                0x00800201                __iob
+ COMMON         0x00800207        0x4 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(malloc.o)
+                0x00800207                __brkval
+                0x00800209                __flp
+                0x0080020b                PROVIDE (__bss_end, .)
+                0x00004116                __data_load_start = LOADADDR (.data)
+                0x00004124                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0080020b        0x0
+                0x0080020b                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x0080020b                PROVIDE (__noinit_end, .)
+                0x0080020b                _end = .
+                0x0080020b                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.user_signatures
+ *(.user_signatures*)
+
+.stab           0x00000000     0x6654
+ *(.stab)
+ .stab          0x00000000      0x6e4 ./util/clock.o
+ .stab          0x000006e4      0x2b8 ./util/config.o
+                                0x4bc (size before relaxing)
+ .stab          0x0000099c      0xb70 ./util/log.o
+                                0xd74 (size before relaxing)
+ .stab          0x0000150c      0x5a0 ./pwm/pwm.o
+                                0x798 (size before relaxing)
+ .stab          0x00001aac      0x414 ./pwm/soft_pwm.o
+                                0x5dc (size before relaxing)
+ .stab          0x00001ec0      0x7a4 ./math/fast_math.o
+                                0x96c (size before relaxing)
+ .stab          0x00002664      0x648 ./imu/gyro.o
+                                0x84c (size before relaxing)
+ .stab          0x00002cac      0x510 ./imu/imu.o
+                                0x738 (size before relaxing)
+ .stab          0x000031bc      0xa50 ./imu/mpu6050.o
+                                0xcc0 (size before relaxing)
+ .stab          0x00003c0c      0xe70 ./i2c/twi/twi.o
+                               0x1080 (size before relaxing)
+ .stab          0x00004a7c      0x840 ./i2c/i2c.o
+                                0xa08 (size before relaxing)
+ .stab          0x000052bc      0xa44 ./i2c/i2c_driver.o
+                                0xcb4 (size before relaxing)
+ .stab          0x00005d00      0x954 ./main.o
+                                0xc18 (size before relaxing)
+
+.stabstr        0x00000000     0x2f8c
+ *(.stabstr)
+ .stabstr       0x00000000     0x2f8c ./util/clock.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x11
+ *(.comment)
+ .comment       0x00000000       0x11 ./util/clock.o
+                                 0x12 (size before relaxing)
+ .comment       0x00000000       0x12 ./util/config.o
+ .comment       0x00000000       0x12 ./util/log.o
+ .comment       0x00000000       0x12 ./pwm/pwm.o
+ .comment       0x00000000       0x12 ./pwm/soft_pwm.o
+ .comment       0x00000000       0x12 ./math/fast_math.o
+ .comment       0x00000000       0x12 ./imu/gyro.o
+ .comment       0x00000000       0x12 ./imu/imu.o
+ .comment       0x00000000       0x12 ./imu/mpu6050.o
+ .comment       0x00000000       0x12 ./i2c/twi/twi.o
+ .comment       0x00000000       0x12 ./i2c/i2c.o
+ .comment       0x00000000       0x12 ./i2c/i2c_driver.o
+ .comment       0x00000000       0x12 ./main.o
+ .comment       0x00000000       0x12 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(fdevopen.o)
+ .comment       0x00000000       0x12 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(iob.o)
+ .comment       0x00000000       0x12 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(vfprintf_p.o)
+ .comment       0x00000000       0x12 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+ .comment       0x00000000       0x12 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(calloc.o)
+ .comment       0x00000000       0x12 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(malloc.o)
+ .comment       0x00000000       0x12 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/libc.a(fputc.o)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0xc0
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_exit.o)
+ .debug_aranges
+                0x00000020       0x20 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_tablejump.o)
+ .debug_aranges
+                0x00000040       0x20 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_copy_data.o)
+ .debug_aranges
+                0x00000060       0x20 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_clear_bss.o)
+ .debug_aranges
+                0x00000080       0x20 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_prologue.o)
+ .debug_aranges
+                0x000000a0       0x20 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_epilogue.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000      0x474
+ *(.debug_info)
+ .debug_info    0x00000000       0xbe /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_exit.o)
+ .debug_info    0x000000be       0xbe /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_tablejump.o)
+ .debug_info    0x0000017c       0xbe /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_copy_data.o)
+ .debug_info    0x0000023a       0xbe /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_clear_bss.o)
+ .debug_info    0x000002f8       0xbe /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_prologue.o)
+ .debug_info    0x000003b6       0xbe /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_epilogue.o)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000       0x78
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0x14 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_exit.o)
+ .debug_abbrev  0x00000014       0x14 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_tablejump.o)
+ .debug_abbrev  0x00000028       0x14 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_copy_data.o)
+ .debug_abbrev  0x0000003c       0x14 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_clear_bss.o)
+ .debug_abbrev  0x00000050       0x14 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_prologue.o)
+ .debug_abbrev  0x00000064       0x14 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_epilogue.o)
+
+.debug_line     0x00000000      0x25a
+ *(.debug_line)
+ .debug_line    0x00000000       0x58 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_exit.o)
+ .debug_line    0x00000058       0x5c /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_tablejump.o)
+ .debug_line    0x000000b4       0x61 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_copy_data.o)
+ .debug_line    0x00000115       0x5e /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_clear_bss.o)
+ .debug_line    0x00000173       0x74 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_prologue.o)
+ .debug_line    0x000001e7       0x73 /usr/local/CrossPack-AVR-20131216/lib/gcc/avr/4.8.1/avr5/libgcc.a(_epilogue.o)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges
+ *(.debug_ranges)
+
+.debug_macro
+ *(.debug_macro)
+OUTPUT(brushless_gimbal.elf elf32-avr)
+LOAD linker stubs
