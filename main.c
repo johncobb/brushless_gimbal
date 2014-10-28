@@ -16,7 +16,12 @@
 #include "util/log.h"
 #include "util/clock.h"
 #include "imu/imu.h"
+#include "imu/gyro.h"
 #include "pwm/pwm.h"
+#include "eeprom/eeprom.h"
+#include "blc/blc.h"
+#include "gimbal/gimbal.h"
+
 
 // log debugging
 static const char _tag[] PROGMEM = "main: ";
@@ -34,9 +39,9 @@ void terminal_in_cb(uint8_t c)
 }
 
 // IMU variables
-uint16_t ax, ay, az;
-uint16_t gx, gy, gz;
-uint16_t mx, my, mz;
+int16_t ax, ay, az;
+int16_t gx, gy, gz;
+int16_t mx, my, mz;
 
 
 void main()
@@ -45,12 +50,11 @@ void main()
 	debug_init(terminal_in_cb);
 	//clock_init();
 
+	config_init();
+
 	LOG("spike_328p_i2c started...\r\n");
 	pwm_init(); // May interfere with clock or other clock driven sources
 	sei();
-
-
-
 	// First we need to join the I2C bus
 	i2c_begin();
 
@@ -59,6 +63,30 @@ void main()
 	imu_init();
 	LOG("imu_test\r\n");
 	bool test = imu_test();
+
+	// Make sure we are able to communicate with imu
+	if(test == true){
+		if(config.gyro_calibrate){
+			gyro_offset_calibration();
+		}
+	}
+
+	LOG("blc_init\r\n");
+	blc_init();
+	motor_power_off();
+
+	init_resolution_divder();
+
+	init_sensor_orientation();
+
+	init_pids();
+
+	// TODO: Not implemented
+	// Init rc variables
+	//init_rc();
+	// Init rc-input
+	//init_rc_pins();
+
 
 	LOG("starting loop...\r\n");
 
@@ -69,9 +97,10 @@ void main()
 	}
 }
 
+
+
 void read_imu()
 {
-	//imu_getmotion9(&ax, &ay, &az, &gx, &gy, &gz, &mx, &my, &mz);
 	imu_read9(&ax, &ay, &az, &gx, &gy, &gz, &mx, &my, &mz);
 	LOG("a/g/m:\t");
 	LOG("%d\t", ax);

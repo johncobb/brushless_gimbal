@@ -8,13 +8,21 @@
 #include <avr/interrupt.h>
 #include <avr/io.h>
 #include <util/delay.h>
+#include <stdbool.h>
 #include "../util/clock.h"
+#include "../gimbal/gimbal.h"
 #include "pwm.h"
+
 
 
 void timer0_isr_emulation();
 
-volatile uint8_t dutyCycle = 0;
+volatile uint8_t duty_cycle_channel0 = 0;
+volatile uint8_t duty_cycle_channel1 = 0;
+volatile uint8_t duty_cycle_channel2 = 0;
+volatile uint8_t duty_cycle_channel3 = 0;
+volatile uint8_t duty_cycle_channel4 = 0;
+volatile uint8_t duty_cycle_channel5 = 0;
 
 // Hadware PMW
 // Since we are using TCCR0A and TCCR0B in clock they need to be commented
@@ -22,7 +30,8 @@ volatile uint8_t dutyCycle = 0;
 
 void pwm_init()
 {
-	dutyCycle = 50;
+	duty_cycle_channel0 = 0;
+	duty_cycle_channel1 = 0;
 
 
 	DDRD |= (1<<DDD3);
@@ -55,18 +64,31 @@ void pwm_init()
 	sei();
 
 	// Set duty cycle
-	OCR0A = dutyCycle;
-	OCR0B = dutyCycle;
-	OCR1A = dutyCycle;
-	OCR1B = dutyCycle;
-	OCR2A = dutyCycle;
-	OCR2B = dutyCycle;
+	OCR0A = 0;
+	OCR0B = 0;
+	OCR1A = 0;
+	OCR1B = 0;
+	OCR2A = 0;
+	OCR2B = 0;
 }
 
 void pwm_setval(uint8_t val, uint8_t channel)
 {
-	dutyCycle = val;
+	if(channel == 0){
+		duty_cycle_channel0 = val;
+	} else if(channel == 1) {
+		duty_cycle_channel1 = val;
+	} else if (channel == 2) {
+		duty_cycle_channel2 = val;
+	} else if (channel == 3) {
+			duty_cycle_channel3 = val;
+	} else if (channel == 4) {
+			duty_cycle_channel4 = val;
+	} else if (channel == 5) {
+			duty_cycle_channel5 = val;
+	}
 }
+
 
 volatile uint8_t frequency_counter = 0;
 
@@ -77,13 +99,18 @@ ISR(TIMER1_OVF_vect)
 	if(frequency_counter == 32)
 	{
 		// Commented due to clock
-		OCR0A = dutyCycle;
-		OCR0B = dutyCycle;
-		OCR1A = dutyCycle;
-		OCR1B = dutyCycle;
-		OCR2A = dutyCycle;
-		OCR2B = dutyCycle;
+
+		OCR0A = duty_cycle_channel0;
+		OCR0B = duty_cycle_channel1;
+		OCR1A = duty_cycle_channel5;
+		OCR1B = duty_cycle_channel4;
+		OCR2A = duty_cycle_channel3;
+		OCR2B = duty_cycle_channel2;
+
 		frequency_counter = 0;
+
+		// flag to let gimbal.c know we're ready
+		motor_update = true;
 	}
 
 	// emulate timer
@@ -103,17 +130,7 @@ void timer0_isr_emulation()
 
 void pwm_tick()
 {
-	return;
-	// Add 10% duty cycle each pass
-	// wait one second
-	dutyCycle += 10;
-
-	if (dutyCycle >= 250)
-	{
-		dutyCycle = 0;
-	}
-
-	_delay_ms(100);
+	_delay_ms(50);
 }
 
 /*

@@ -26,4 +26,7 @@ math \
 imu \
 i2c/twi \
 i2c \
+gimbal \
+eeprom \
+blc \
 

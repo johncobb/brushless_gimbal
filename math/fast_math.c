@@ -8,7 +8,34 @@
 #include "../util/defines.h"
 #include "fast_math.h"
 
-uint32_t constrain_uint32(uint32_t x, uint32_t l, uint32_t h)
+
+int constrain_int(int x, int l, int h)
+{
+	if(x <= l){
+		return l;
+	}
+	else if(x >= h){
+		return h;
+	}
+	else{
+		return x;
+	}
+}
+
+int16_t constrain_int16(int16_t x, int16_t l, int16_t h)
+{
+	if(x <= l){
+		return l;
+	}
+	else if(x >= h){
+		return h;
+	}
+	else{
+		return x;
+	}
+}
+
+int32_t constrain_int32(int32_t x, int32_t l, int32_t h)
 {
 	if(x <= l){
 		return l;
@@ -100,7 +127,7 @@ float util_lowpass3rd_filter(float *q, float i, float coeff)
 }
 
 #define CRC_WIDTH	(8 * sizeof(crc))
-#define CRC_TOPBIT	(1 << (CRC_WIDTH -1)
+#define CRC_TOPBIT	(1 << (CRC_WIDTH -1))
 
 
 // todo: fix code below
@@ -115,19 +142,29 @@ crc crc_slow(uint8_t const message[], uint8_t size)
 		for(uint8_t bit = 8; bit > 0; --bit)
 		{
 
-//			if(remainder & CRC_TOPBIT)
-//			{
-//				remainder = 1;
-//				//remainder = (remainder << 1) ^ POLYNOMIAL;
-//			}
-//			else
-//			{
-//				remainder = (remainder << 1);
-//			}
+			remainder = (remainder << 1) ^ (remainder & CRC_TOPBIT)*POLYNOMIAL;
 		}
 	}
 
 	return (remainder);
+}
+
+int32_t compute_pid(int32_t dt_ms, int32_t dt_inv, int32_t in, int32_t set_point, int32_t *error_sum, int32_t *error_old, int32_t kp, int16_t ki, int32_t kd)
+{
+	int32_t error = set_point - in;
+	int32_t i_error;
+
+	i_error = error * ki * dt_ms;
+	i_error = constrain_int32(i_error, -(int32_t) 1000*100, (int32_t)1000*100);
+	*error_sum += i_error;
+
+	// Compute PID output
+	int32_t out = (kp * error) + *error_sum + kd * (error - *error_old) * dt_inv;
+	*error_old = error;
+
+	out = out/4096/8;
+	return out;
+
 }
 
 

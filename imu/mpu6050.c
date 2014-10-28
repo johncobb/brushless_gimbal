@@ -84,7 +84,7 @@ uint8_t get_device_id()
 	return imu_buffer[0];
 }
 
-void imu_getmotion6(uint16_t *ax, uint16_t *ay, uint16_t *az, uint16_t *gx, uint16_t *gy, uint16_t *gz)
+void imu_getmotion6(int16_t *ax, int16_t *ay, int16_t *az, int16_t *gx, int16_t *gy, int16_t *gz)
 {
 	readBytes(imu_address, MPU6050_RA_ACCEL_XOUT_H, 14, imu_buffer, I2CDEV_DEFAULT_READ_TIMEOUT);
     *ax = (((int16_t)imu_buffer[0]) << 8) | imu_buffer[1];
@@ -95,7 +95,7 @@ void imu_getmotion6(uint16_t *ax, uint16_t *ay, uint16_t *az, uint16_t *gx, uint
     *gz = (((int16_t)imu_buffer[12]) << 8) | imu_buffer[13];
 }
 
-void imu_getmotion9(uint16_t *ax, uint16_t *ay, uint16_t *az, uint16_t *gx, uint16_t *gy, uint16_t *gz, uint16_t *mx, uint16_t *my, uint16_t *mz)
+void imu_getmotion9(int16_t *ax, int16_t *ay, int16_t *az, int16_t *gx, int16_t *gy, int16_t *gz, int16_t *mx, int16_t *my, int16_t *mz)
 {
 	// get accel and gyro
 	imu_getmotion6(ax, ay, az, gx, gy, gz);
@@ -116,3 +116,23 @@ void imu_getmotion9(uint16_t *ax, uint16_t *ay, uint16_t *az, uint16_t *gx, uint
 
 }
 
+void set_dlpf_mode(uint8_t mode)
+{
+	writeBits(imu_address, MPU6050_RA_CONFIG, MPU6050_CFG_DLPF_CFG_BIT, MPU6050_CFG_DLPF_CFG_LENGTH, mode);
+}
+
+void get_rotation(int16_t *x, int16_t *y, int16_t *z)
+{
+	readBytes(imu_address, MPU6050_RA_GYRO_XOUT_H, 6, imu_buffer, I2CDEV_DEFAULT_READ_TIMEOUT);
+    *x = (((int16_t)imu_buffer[0]) << 8) | imu_buffer[1];
+    *y = (((int16_t)imu_buffer[2]) << 8) | imu_buffer[3];
+    *z = (((int16_t)imu_buffer[4]) << 8) | imu_buffer[5];
+}
+
+void get_acceleration(int16_t *x, int16_t *y, int16_t *z)
+{
+	readBytes(imu_address, MPU6050_RA_ACCEL_XOUT_H, 6, imu_buffer, I2CDEV_DEFAULT_READ_TIMEOUT);
+    *x = (((int16_t)imu_buffer[0]) << 8) | imu_buffer[1];
+    *y = (((int16_t)imu_buffer[2]) << 8) | imu_buffer[3];
+    *z = (((int16_t)imu_buffer[4]) << 8) | imu_buffer[5];
+}

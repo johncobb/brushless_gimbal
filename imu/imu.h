@@ -22,7 +22,9 @@ uint8_t imu_buffer[IMU_BUFFER_LENGTH];
 void imu_init();
 void imu_tick();
 bool imu_test();
-void imu_read6(uint16_t *ax, uint16_t *ay, uint16_t *az, uint16_t *gx, uint16_t *gy, uint16_t *gz);
-void imu_read9(uint16_t *ax, uint16_t *ay, uint16_t *az, uint16_t *gx, uint16_t *gy, uint16_t *gz, uint16_t *mx, uint16_t *my, uint16_t *mz);
-
+void imu_read6(int16_t *ax, int16_t *ay, int16_t *az, int16_t *gx, int16_t *gy, int16_t *gz);
+void imu_read9(int16_t *ax, int16_t *ay, int16_t *az, int16_t *gx, int16_t *gy, int16_t *gz, int16_t *mx, int16_t *my, int16_t *mz);
+void read_gyros();
+void get_rotation(int16_t *x, int16_t *y, int16_t *z);
+void get_acceleration(int16_t *x, int16_t *y, int16_t *z);
 #endif /* IMU_H_ */

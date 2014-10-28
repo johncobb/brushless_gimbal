@@ -379,8 +379,10 @@ void set_clock_source(uint8_t source);
 void set_full_scale_gyro_range(uint8_t range);
 void set_full_scale_accel_range(uint8_t range);
 void set_sleep_enabled(bool enabled);
-void imu_getmotion6(uint16_t *ax, uint16_t *ay, uint16_t *az, uint16_t *gx, uint16_t *gy, uint16_t *gz);
-void imu_getmotion9(uint16_t *ax, uint16_t *ay, uint16_t *az, uint16_t *gx, uint16_t *gy, uint16_t *gz, uint16_t *mx, uint16_t *my, uint16_t *mz);
-
+void imu_getmotion6(int16_t *ax, int16_t *ay, int16_t *az, int16_t *gx, int16_t *gy, int16_t *gz);
+void imu_getmotion9(int16_t *ax, int16_t *ay, int16_t *az, int16_t *gx, int16_t *gy, int16_t *gz, int16_t *mx, int16_t *my, int16_t *mz);
+void set_dlpf_mode(uint8_t mode);
+void get_rotation(int16_t *x, int16_t *y, int16_t *z);
+void get_acceleration(int16_t *x, int16_t *y, int16_t *z);
 
 #endif /* MPU6050_H_ */
