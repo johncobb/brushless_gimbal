@@ -50,7 +50,7 @@ void init_resolution_divider()
 // motion detection
 // keep board still until complete
 
-#define 					TOL	64
+#define TOL					64
 #define GYRO_ITERATIONS		4000
 
 void gyro_offset_calibration()
@@ -77,8 +77,7 @@ void gyro_offset_calibration()
 		if(gyro_calibration_counter == GYRO_ITERATIONS)
 		{
 			// TODO: Possibly implement in a tick process
-			//_delay_ms(700);
-			delay_millis(2000);
+			delay_millis(700);
 
 			// TODO: Implement following function in spike_328p_i2c
 			imu_get_rotation(&gyro[0], &gyro[1], &gyro[2]);
@@ -90,13 +89,17 @@ void gyro_offset_calibration()
 			}
 		}
 
+		//LOG("imu_get_rotation:\r\n");
 		imu_get_rotation(&gyro[0], &gyro[1], &gyro[2]);
 
 		for (i=0; i<3; i++)
 		{
-			if(abs(prev_gyro[i]) - gyro[i] > TOL)
+			if(abs(prev_gyro[i] - gyro[i]) > TOL)
 			{
 				tilt_detected++;
+#ifdef GYRO_DEBUG
+				LOG("i=%d counter=%d diff=%d gyro[i]=%d, prev_gyro[i]=%d\r\n", i, gyro_calibration_counter, prev_gyro[i] - gyro[i], gyro[i], prev_gyro[i]);
+#endif
 				break;
 			}
 		}

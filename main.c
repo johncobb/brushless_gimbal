@@ -99,12 +99,14 @@ void main()
 
 
 	// set sensor orientation
-	//init_sensor_orientation();
+	LOG("init_sensor_orientation...\r\n");
+	init_sensor_orientation();
 
 	/*
 	 * init pid parameters
 	 */
-	//init_pids();
+	LOG("init_pids...\r\n");
+	init_pids();
 
 	// TODO: Not implemented
 	// Init rc variables
@@ -116,16 +118,17 @@ void main()
 	 * gimbal is the main state machine
 	 * for processing stabilization
 	 */
-	//gimbal_init();
+	LOG("gimbal_init...\r\n");
+	gimbal_init();
 
 
 	LOG("starting loop...\r\n");
 
 	while(1)
 	{
-		_delay_ms(100);
+		_delay_ms(50);
 		//gimbal_tick();
-		//read_imu();
+		read_imu();
 		//(100);
 	}
 }
@@ -134,21 +137,42 @@ void main()
 
 void read_imu()
 {
-	imu_read9(&ax, &ay, &az, &gx, &gy, &gz, &mx, &my, &mz);
-	LOG("a/g/m:\t");
+	// Rotations
+//	imu_get_rotation(&ax, &ay, &az);
+//	LOG("rotation x/y/z:\t");
+//	LOG("%d\t", ax);
+//	LOG("%d\t", ay);
+//	LOG("%d\t", az);
+//	LOG("\r\n");
+//	_delay_ms(100);
+//	return;
+
+	// Accelerations
+	imu_get_acceleration(&ax, &ay, &az);
+	LOG("acceleration x/y/z:\t");
 	LOG("%d\t", ax);
 	LOG("%d\t", ay);
 	LOG("%d\t", az);
-	LOG("%d\t", gx);
-	LOG("%d\t", gy);
-	LOG("%d\t", gz);
-	LOG("%d\t", mx);
-	LOG("%d\t", my);
-	LOG("%d\t", mz);
 	LOG("\r\n");
-
 	_delay_ms(100);
+	return;
+
+//	imu_read9(&ax, &ay, &az, &gx, &gy, &gz, &mx, &my, &mz);
+//	LOG("a/g/m:\t");
+//	LOG("%d\t", ax);
+//	LOG("%d\t", ay);
+//	LOG("%d\t", az);
+//	LOG("%d\t", gx);
+//	LOG("%d\t", gy);
+//	LOG("%d\t", gz);
+//	LOG("%d\t", mx);
+//	LOG("%d\t", my);
+//	LOG("%d\t", mz);
+//	LOG("\r\n");
+//	_delay_ms(100);
 }
+
+
 
 /*
 void i2c_template()

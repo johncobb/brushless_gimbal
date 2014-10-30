@@ -1,17 +1,22 @@
 /*
+
  * gimbal.c
  *
  *  Created on: Oct 28, 2014
  *      Author: jcobb
  */
+#include <avr/pgmspace.h>
 #include <avr/io.h>
 #include "../util/clock.h"
+#include "../util/log.h"
 #include "../math/fast_math.h"
 #include "../imu/imu.h"
 #include "../imu/gyro.h"
 #include "../blc/blc.h"
 #include "../adc/adc.h"
 #include "gimbal.h"
+
+static const char _tag[] PROGMEM = "gimbal: ";
 
 volatile int8_t gimbal_state = GIM_IDLE;
 
@@ -67,15 +72,31 @@ static void enter_task(int8_t index)
 	task_id = index;
 }
 
+static void enter_state(int8_t state)
+{
+	gimbal_state = state;
+
+	// only GIM_IDLE and GIM_UNLOCKED have timeouts
+	if(state == GIM_IDLE) {
+		set_timer(1000);
+	}
+	else if (state == GIM_UNLOCKED) {
+		set_timer(LOCK_TIME_SEC);
+	}
+}
+
 
 void gimbal_init()
 {
+	LOG("enter_task: READACC\r\n");
+	LOG("enter_state: GIM_IDLE\r\n");
 	enter_task(READACC);
 	enter_state(GIM_IDLE);
 }
 
 void gimbal_tick()
 {
+	motor_update = true;
 	// flag set in pwm isr
 	if(motor_update)
 	{
@@ -90,26 +111,32 @@ void gimbal_tick()
 
 		// Pitch PID
 		if(fpv_mode_freeze_pitch == false){
+			//LOG("calc pitch pid\r\n");
 			pitch_pid_val = compute_pid(DT_INT_MS, DT_INT_INV, angle[PITCH], pitch_angle_set *1000, &pitch_error_sum, &pitch_error_old, pitch_pid_par.kp, pitch_pid_par.ki, pitch_pid_par.kd);
 			pitch_motor_drive = pitch_pid_val * config.dir_motor_pitch;
 		}
 
 		// Roll PID
-		if(fpv_mode_freeze_pitch == false){
+		if(fpv_mode_freeze_roll == false){
+			//LOG("calc roll pid\r\n");
 			roll_pid_val = compute_pid(DT_INT_MS, DT_INT_INV, angle[ROLL], roll_angle_set *1000, &roll_error_sum, &roll_error_old, roll_pid_par.kp, roll_pid_par.ki, roll_pid_par.kd);
 			roll_motor_drive = roll_pid_val * config.dir_motor_roll;
 		}
 
 		if(enable_motor_updates){
+			//LOG("updating motors\r\n");
 			move_motor_position_speed(config.motor_number_pitch, pitch_motor_drive, max_pwm_motor_pitch_scaled);
 			move_motor_position_speed(config.motor_number_roll, roll_motor_drive, max_pwm_motor_roll_scaled);
 		}
 
+
+		LOG("pitch_pid_val=%lu pitch_motor_drive=%lu\r\n", pitch_pid_val, pitch_motor_drive);
+		LOG("roll_pid_val=%lu roll_motor_drive=%lu\r\n", roll_pid_val, roll_motor_drive);
 		// TODO:
 		// Evaluate RC Singals
 
 		task_handler();
-		state_handler();
+		//state_handler();
 	}
 }
 
@@ -118,13 +145,16 @@ static void task_handler()
 	switch(task_id)
 	{
 	case READACC:
+		//LOG("read_accs\r\n");
 		read_accs();
 		break;
 	case UPDATEACC:
+		//LOG("update_acc\r\n");
 		update_acc();
 		break;
 	case VOLTAGECOMP:
-		voltage_compensation();
+		//LOG("voltage_compensation\r\n");
+		//voltage_compensation();
 		break;
 	}
 
@@ -132,18 +162,7 @@ static void task_handler()
 	if(task_id == 3) task_id = 0;
 }
 
-static void enter_state(int8_t state)
-{
-	gimbal_state = state;
 
-	// only GIM_IDLE and GIM_UNLOCKED have timeouts
-	if(state == GIM_IDLE) {
-		set_timer(1000);
-	}
-	else if (state == GIM_UNLOCKED) {
-		set_timer(LOCK_TIME_SEC);
-	}
-}
 
 static void state_handler()
 {
