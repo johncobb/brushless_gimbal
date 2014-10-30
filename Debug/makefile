@@ -10,13 +10,9 @@ RM := rm -rf
 -include sources.mk
 -include util/subdir.mk
 -include pwm/subdir.mk
--include math/subdir.mk
 -include imu/subdir.mk
 -include i2c/twi/subdir.mk
 -include i2c/subdir.mk
--include gimbal/subdir.mk
--include eeprom/subdir.mk
--include blc/subdir.mk
 -include subdir.mk
 -include objects.mk
 

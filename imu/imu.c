@@ -6,9 +6,11 @@
  */
 #include <avr/pgmspace.h>
 #include <util/delay.h>
-#include "../util/log.h"
 #include "../i2c/i2c_driver.h"
 #include "imu.h"
+#include "mpu6050.h"
+#include "../util/config.h"
+#include "../math/fast_math.h"
 #include "gyro.h"
 
 
@@ -16,14 +18,12 @@
 #define IMU_9150	2
 #define IMU_TYPE	IMU_9150
 
-static const char _tag[] PROGMEM = "imu: ";
-
 uint8_t imu_address = IMU_ADDRESS;
+
+void rotate_v(struct fp_vector * v, float *delta);
 
 void imu_init()
 {
-	LOG("imu_init\r\n");
-
 	mpu6050_init();
 }
 
@@ -34,24 +34,24 @@ bool imu_test()
 
 void imu_read6(int16_t *ax, int16_t *ay, int16_t *az, int16_t *gx, int16_t *gy, int16_t *gz)
 {
-	imu_getmotion6(ax, ay, az, gx, gy, gz);
+	mpu6050_getmotion6(ax, ay, az, gx, gy, gz);
 }
 
 void imu_read9(int16_t *ax, int16_t *ay, int16_t *az, int16_t *gx, int16_t *gy, int16_t *gz, int16_t *mx, int16_t *my, int16_t *mz)
 {
-	imu_getmotion9(ax, ay, az, gx, gy, gz, mx, my, mz);
+	mpu6050_getmotion9(ax, ay, az, gx, gy, gz, mx, my, mz);
 }
 
-void rotation(int16_t *x, int16_t *y, int16_t *z)
+void imu_get_rotation(int16_t *x, int16_t *y, int16_t *z)
 {
-	get_rotation(x, y, z);
+	mpu6050_get_rotation(x, y, z);
 }
-void acceleration(int16_t *x, int16_t *y, int16_t *z)
+void imu_get_acceleration(int16_t *x, int16_t *y, int16_t *z)
 {
-	get_acceleration(x, y, z);
+	mpu6050_get_acceleration(x, y, z);
 }
 
-void read_gyros()
+void imu_read_gyros()
 {
 	int16_t axis_rotation[3];
 
@@ -59,7 +59,7 @@ void read_gyros()
 	// 414 us
 
 	//read gyros
-	rotation(&axis_rotation[0], &axis_rotation[1], &axis_rotation[2]);
+	imu_get_rotation(&axis_rotation[0], &axis_rotation[1], &axis_rotation[2]);
 
 	axis_rotation[0] -= config.gyro_offset_x;
 	axis_rotation[1] -= config.gyro_offset_y;
@@ -78,5 +78,59 @@ void read_gyros()
 	gyro_adc[YAW] *= sensor_def.gyro[2].dir;
 
 }
+
+void imu_set_dlpf()
+{
+	mpu6050_set_dlpf_mode(MPU6050_DLPF_BW_5);
+}
+
+void rotate_v(struct fp_vector * v, float *delta)
+{
+	struct fp_vector v_tmp = *v;
+	v->Z -= delta[ROLL]  * v_tmp.X + delta[PITCH] * v_tmp.Y;
+	v->X += delta[ROLL]  * v_tmp.Z - delta[YAW]   * v_tmp.Y;
+	v->Y += delta[PITCH] * v_tmp.Z + delta[YAW]   * v_tmp.X;
+}
+
+void imu_update_gyro_attitude()
+{
+	uint8_t axis;
+
+	float delta_gyro_angle[3];
+
+	// 43us
+	for(axis=0; axis<3; axis++){
+		delta_gyro_angle[axis] = gyro_adc[axis] * gyro_scale;
+	}
+
+	rotate_v(&est_g.V, delta_gyro_angle);
+}
+
+void imu_update_acc_attitude()
+{
+	uint8_t axis;
+
+	// 80 us
+	// Apply complimentary filter (Gyro drift correction)
+	// If accel magnitude >1.4G or <0.6G and ACC vector outside of the limit range => we neutralize the effect of accelerometers in the angle estimation.
+	// To do that, we just skip filter, as EstV already rotated by Gyro
+	if (( 36 < acc_mag && acc_mag < 196 ) || disable_acc_gtest) {
+		for (axis = 0; axis < 3; axis++) {
+		  //utilLP_float(&EstG.A[axis], accLPF[axis], AccComplFilterConst);
+			est_g.A[axis] = est_g.A[axis] * (1.0 - acc_compl_filter_const) + acc_lpf[axis] * acc_compl_filter_const; // note: this is different from MultiWii (wrong brackets postion in MultiWii ??.
+		}
+	}
+
+}
+
+void imu_get_attitude_angles()
+{
+	// attitude of the estimated vector
+	// 200us
+	angle[ROLL] = config.angle_offset_roll + fast_arc_tan2_deg1000(est_g.V.X , sqrt(est_g.V.Z*est_g.V.Z+est_g.V.Y*est_g.V.Y));
+	// 400us
+	angle[PITCH] = config.angle_offset_pitch + fast_arc_tan2_deg1000(est_g.V.Y , est_g.V.Z);
+}
+
 
 

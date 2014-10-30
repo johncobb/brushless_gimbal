@@ -13,29 +13,12 @@
 
 #define GYRO_DEBUG		1
 
-enum axis_def {
-	ROLL,
-	PITCH,
-	YAW
-};
-//********************
-// sensor orientation
-//********************
-typedef struct sensor_axis_def {
-  char idx;
-  int  dir;
-} t_sensor_axis_def;
+/* Set the Low Pass Filter factor for ACC Magnitude */
+#define ACC_LPF_FACTOR 40
 
-typedef struct sensor_orientation_def {
-  t_sensor_axis_def gyro[3];
-  t_sensor_axis_def acc[3];
-} t_sensor_orientation_def;
+#define ACC_1G 16384.0f
 
-extern t_sensor_orientation_def sensor_def;
 
-static float gyro_scale=0;
-static int16_t gyro_adc[3];
-static int16_t acc_adc[3];
 
 
 typedef struct pid_data {
@@ -48,10 +31,12 @@ pid_data_t roll_pid_par;
 //#define GRAVITY 16384.0f
 #define GRAVITY	15500.0f;
 
-void init_resolution_divder();
+void init_resolution_divider();
 void gyro_offset_calibration();
 uint8_t accl_calibration();
 void init_sensor_orientation();
 void init_pids();
+void read_accs();
+void update_acc();
 
 #endif /* GYRO_H_ */

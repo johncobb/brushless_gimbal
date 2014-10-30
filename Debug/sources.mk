@@ -21,12 +21,8 @@ S_UPPER_DEPS :=
 SUBDIRS := \
 util \
 pwm \
-math \
 . \
 imu \
 i2c/twi \
 i2c \
-gimbal \
-eeprom \
-blc \
 

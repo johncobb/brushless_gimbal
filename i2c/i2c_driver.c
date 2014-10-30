@@ -54,6 +54,7 @@ uint8_t readBytes(uint8_t address, uint8_t regAddr, uint8_t length, uint8_t *dat
 
 		while(i2c_available() > 0)
 		{
+			data[count] = i2c_read();
 #ifdef I2C_DEBUG
 			LOGHEX(&data[count], 1);
 			if(count + 1 < length) LOG(" ");
@@ -67,10 +68,7 @@ uint8_t readBytes(uint8_t address, uint8_t regAddr, uint8_t length, uint8_t *dat
 #endif
 				break;
 			}
-
-			data[count] = i2c_read();
 		}
-
 	}
 
 #ifdef I2C_DEBUG

@@ -4,17 +4,14 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../imu/gyro.c \
 ../imu/imu.c \
 ../imu/mpu6050.c 
 
 OBJS += \
-./imu/gyro.o \
 ./imu/imu.o \
 ./imu/mpu6050.o 
 
 C_DEPS += \
-./imu/gyro.d \
 ./imu/imu.d \
 ./imu/mpu6050.d 
 

@@ -10,6 +10,7 @@
 //#include <util/delay.h>
 #include "imu.h"
 #include "gyro.h"
+#include "../math/fast_math.h"
 #include "../util/clock.h"
 #include "../util/log.h"
 
@@ -37,7 +38,7 @@ void swap_int(int *a, int * b){
 }
 
 
-void init_resolution_divder()
+void init_resolution_divider()
 {
 	if(MPU6050_GYRO_FS == 0x00) resolution_divider = 131.0;
 	if(MPU6050_GYRO_FS == 0x01) resolution_divider = 65.5;
@@ -64,7 +65,7 @@ void gyro_offset_calibration()
 	int16_t gyro_calibration_counter = GYRO_ITERATIONS;
 
 	// TODO: Implement following function in spike_328p_i2c
-	set_dlpf_mode(MPU6050_DLPF_BW_5);
+	imu_set_dlpf();
 
 	// TODO: Possibly implement in a tick process
 	// wait 2 seconds
@@ -80,7 +81,7 @@ void gyro_offset_calibration()
 			delay_millis(2000);
 
 			// TODO: Implement following function in spike_328p_i2c
-			get_rotation(&gyro[0], &gyro[1], &gyro[2]);
+			imu_get_rotation(&gyro[0], &gyro[1], &gyro[2]);
 
 			for(i=0; i<3; i++)
 			{
@@ -89,7 +90,7 @@ void gyro_offset_calibration()
 			}
 		}
 
-		get_rotation(&gyro[0], &gyro[1], &gyro[2]);
+		imu_get_rotation(&gyro[0], &gyro[1], &gyro[2]);
 
 		for (i=0; i<3; i++)
 		{
@@ -141,7 +142,7 @@ uint8_t accl_calibration()
 
 	for (uint8_t i=0; i<ACC_ITERATIONS; i++){
 
-		get_acceleration(&dev_val[0], &dev_val[1], &dev_val[2]);
+		imu_get_acceleration(&dev_val[0], &dev_val[1], &dev_val[2]);
 
 		for (uint8_t j=0; j<3; j++){
 			acc_offset[j] += (float) dev_val[j]/ACC_ITERATIONS;
@@ -248,6 +249,37 @@ void init_pids()
 	pitch_pid_par.kp = config.gyro_pitch_kp/10;
 	pitch_pid_par.ki = config.gyro_pitch_ki/1000;
 	pitch_pid_par.kd = config.gyro_pitch_kd/10/250; // TODO: research need for /250
+}
+
+// get 3-axis acceleration
+void read_accs()
+{
+	int16_t raw_val[3];
+	int16_t	dev_val[3];
+
+	imu_get_acceleration(&raw_val[0], &raw_val[1], &raw_val[2]);
+
+	dev_val[sensor_def.acc[ROLL].idx] = raw_val[0] - config.acc_offset_x;
+	dev_val[sensor_def.acc[PITCH].idx] = raw_val[1] - config.acc_offset_y;
+	dev_val[sensor_def.acc[YAW].idx] = raw_val[2] - config.acc_offset_z;
+
+	for(int8_t axis=0; axis<3; axis++){
+		acc_adc[axis] = dev_val[axis] * sensor_def.acc[axis].dir;
+	}
+}
+
+void update_acc()
+{
+	uint8_t axis;
+	float acc_mag_sum = 0;
+
+	for(axis=0; axis<3; axis++){
+		acc_lpf[axis] = acc_adc[axis];
+		acc_mag_sum+= acc_lpf[axis]*acc_lpf[axis];
+	}
+
+	acc_mag_sum = acc_mag_sum*100.0/(ACC_1G*ACC_1G);
+	util_lowpass_filter(&acc_mag, acc_mag_sum, (1.0f/ACC_LPF_FACTOR));
 }
 
 

@@ -10,6 +10,7 @@
 
 #include <math.h>
 #include <stdint.h>
+#include "../util/config.h"
 
 #define PI	3.14159265
 
@@ -31,6 +32,7 @@ float util_lowpass3rd_filter(float *q, float i, float coeff);
 
 int32_t compute_pid(int32_t dt_ms, int32_t dt_inv, int32_t in, int32_t set_point, int32_t *error_sum, int32_t *error_old, int32_t kp, int16_t ki, int32_t kd);
 
+crc crc_slow(uint8_t const message[], uint8_t size);
 
 
 #endif /* FAST_MATH_H_ */

@@ -10,7 +10,7 @@
 
 #include <avr/eeprom.h>
 
-uint8_t read(int address);
-void write(int address, uint8_t value);
+uint8_t eeprom_read(int address);
+void eeprom_write(int address, uint8_t value);
 
 #endif /* EEPROM_H_ */

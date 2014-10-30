@@ -11,7 +11,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include <inttypes.h>
-#include "config.h"
+//#include "config.h"
 
 typedef bool boolean;
 typedef uint8_t byte;

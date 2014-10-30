@@ -4,15 +4,12 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../pwm/pwm.c \
 ../pwm/soft_pwm.c 
 
 OBJS += \
-./pwm/pwm.o \
 ./pwm/soft_pwm.o 
 
 C_DEPS += \
-./pwm/pwm.d \
 ./pwm/soft_pwm.d 
 
 

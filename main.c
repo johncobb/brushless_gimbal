@@ -12,15 +12,18 @@
 #include <util/delay.h>
 #include <util/twi.h>
 #include <avr/interrupt.h>
+#include <stdbool.h>
 #include "i2c/i2c.h"
 #include "util/log.h"
 #include "util/clock.h"
+#include "util/config.h"
 #include "imu/imu.h"
 #include "imu/gyro.h"
 #include "pwm/pwm.h"
 #include "eeprom/eeprom.h"
 #include "blc/blc.h"
 #include "gimbal/gimbal.h"
+
 
 
 // log debugging
@@ -50,36 +53,58 @@ void main()
 	debug_init(terminal_in_cb);
 	//clock_init();
 
+	/*
+	 * load configuration
+	 */
+	LOG("config_init...\r\n");
 	config_init();
 
-	LOG("spike_328p_i2c started...\r\n");
+	LOG("brushless gimbal started...\r\n");
+
+	/*
+	 * init pwm driver
+	 */
+	LOG("pwm_init...\r\n");
 	pwm_init(); // May interfere with clock or other clock driven sources
 	sei();
-	// First we need to join the I2C bus
-	i2c_begin();
 
-
-	LOG("imu_init\r\n");
-	imu_init();
-	LOG("imu_test\r\n");
-	bool test = imu_test();
-
-	// Make sure we are able to communicate with imu
-	if(test == true){
-		if(config.gyro_calibrate){
-			gyro_offset_calibration();
-		}
-	}
-
-	LOG("blc_init\r\n");
-	blc_init();
+	/*
+	 * init blc motor driver
+	 */
+	LOG("blc_init...\r\n");
+	blc_init(); // InitMotorStuff
 	motor_power_off();
 
-	init_resolution_divder();
+	/* --- i2c/gyro/imu initialization ---*/
+	// First we need to join the I2C bus
+	LOG("joining i2c bus...\r\n");
+	i2c_begin();
+	LOG("initializing resolution divider...\r\n");
+	init_resolution_divider();
+	LOG("imu_init...\r\n");
+	imu_init();
+	// Make sure we are able to communicate with imu
+	LOG("running imu test...\r\n");
+	if(imu_test()){
+		LOG("imu test pass.\r\n");
+		if(config.gyro_calibrate == true){
+			LOG("running gyro offset calibration...\r\n");
+			gyro_offset_calibration();
+		}
+	} else {
+		LOG("imu test failed!\r\n");
+	}
 
-	init_sensor_orientation();
+	/* --- end i2c/gyro/imu initialization ---*/
 
-	init_pids();
+
+	// set sensor orientation
+	//init_sensor_orientation();
+
+	/*
+	 * init pid parameters
+	 */
+	//init_pids();
 
 	// TODO: Not implemented
 	// Init rc variables
@@ -87,13 +112,21 @@ void main()
 	// Init rc-input
 	//init_rc_pins();
 
+	/*
+	 * gimbal is the main state machine
+	 * for processing stabilization
+	 */
+	//gimbal_init();
+
 
 	LOG("starting loop...\r\n");
 
 	while(1)
 	{
-		read_imu();
 		_delay_ms(100);
+		//gimbal_tick();
+		//read_imu();
+		//(100);
 	}
 }
 

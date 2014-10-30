@@ -5,17 +5,14 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../util/clock.c \
-../util/config.c \
 ../util/log.c 
 
 OBJS += \
 ./util/clock.o \
-./util/config.o \
 ./util/log.o 
 
 C_DEPS += \
 ./util/clock.d \
-./util/config.d \
 ./util/log.d 
 
 

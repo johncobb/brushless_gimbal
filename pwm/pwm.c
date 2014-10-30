@@ -14,7 +14,6 @@
 #include "pwm.h"
 
 
-
 void timer0_isr_emulation();
 
 volatile uint8_t duty_cycle_channel0 = 0;
