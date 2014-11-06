@@ -21,6 +21,9 @@
 #define IMU_ADDRESS			0x68
 #define IMU_BUFFER_LENGTH	14
 
+extern uint8_t imu_address;
+
+
 
 enum axis_def {
 	ROLL = 0,
@@ -68,8 +71,7 @@ static int16_t acc_25deg = 25;      //** TODO: check
 
 static int32_t angle[2]    = {0,0};  // absolute angle inclination in multiple of 0.01 degree    180 deg = 18000
 
-extern uint8_t imu_address;
-uint8_t imu_buffer[IMU_BUFFER_LENGTH];
+
 
 void imu_init();
 void imu_tick();

@@ -13,7 +13,7 @@
 
 typedef uint8_t crc;
 
-struct
+typedef struct
 {
 	int32_t 	gyro_pitch_kp;
 	int32_t		gyro_pitch_ki;
@@ -49,7 +49,9 @@ struct
 	int16_t 	acc_offset_y;
 	int16_t		acc_offset_z;
 	uint8_t 	crc8;
-} config;
+} config_t;
+
+extern config_t config;
 
 
 float resolution_divider;

@@ -10,6 +10,8 @@
 #include "../eeprom/eeprom.h"
 #include "../math/fast_math.h"
 
+config_t config;
+
 void config_init()
 {
 	config.gyro_pitch_kp = 20000;

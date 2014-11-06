@@ -7,6 +7,7 @@
  */
 #include <avr/pgmspace.h>
 #include <avr/io.h>
+#include "../util/config.h"
 #include "../util/clock.h"
 #include "../util/log.h"
 #include "../math/fast_math.h"
@@ -85,9 +86,21 @@ static void enter_state(int8_t state)
 	}
 }
 
+void set_acc_time_constant(int16_t acc_time_constant){
+	acc_compl_filter_const = (float)DT_FLOAT/(acc_time_constant + DT_FLOAT);
+}
 
 void gimbal_init()
 {
+	// resolution=131, scale = 0.000133
+	gyro_scale = 1.0 / resolution_divider/ 180.0 * PI * DT_FLOAT;
+	set_acc_time_constant(config.acc_time_constant);
+	acc_mag = ACC_1G*ACC_1G; // magnitude of 1G initially
+
+	est_g.V.X = 0;
+	est_g.V.Y = 0;
+	est_g.V.Z = ACC_1G;
+
 	LOG("enter_task: READACC\r\n");
 	LOG("enter_state: GIM_IDLE\r\n");
 	enter_task(READACC);
@@ -96,29 +109,36 @@ void gimbal_init()
 
 void gimbal_tick()
 {
-	motor_update = true;
 	// flag set in pwm isr
 	if(motor_update)
 	{
+		//LOG("motor_update=true\r\n");
 		motor_update = false;
 
 		imu_read_gyros();
 
+
 		if(config.enable_gyro) imu_update_gyro_attitude();
 		if(config.enable_acc) imu_update_acc_attitude();
 
+		//LOG("gyro_attitude x:y:z\t%d\t%d\t%d\r\n", (int16_t) est_g.V.X * 1000, (int16_t) est_g.V.Y * 1000, (int16_t) est_g.V.Z * 1000);
+
+
 		imu_get_attitude_angles();
+
+		LOG("angle[ROLL,PITCH]: %d %d\r\n", (int16_t) angle[ROLL], (int16_t) angle[PITCH]);
+
 
 		// Pitch PID
 		if(fpv_mode_freeze_pitch == false){
-			//LOG("calc pitch pid\r\n");
+			//LOG("angle[PITCH]=%ld\r\n", angle[PITCH]);
 			pitch_pid_val = compute_pid(DT_INT_MS, DT_INT_INV, angle[PITCH], pitch_angle_set *1000, &pitch_error_sum, &pitch_error_old, pitch_pid_par.kp, pitch_pid_par.ki, pitch_pid_par.kd);
 			pitch_motor_drive = pitch_pid_val * config.dir_motor_pitch;
 		}
 
 		// Roll PID
 		if(fpv_mode_freeze_roll == false){
-			//LOG("calc roll pid\r\n");
+			//LOG("angle[ROLL]=%ld\r\n", angle[ROLL]);
 			roll_pid_val = compute_pid(DT_INT_MS, DT_INT_INV, angle[ROLL], roll_angle_set *1000, &roll_error_sum, &roll_error_old, roll_pid_par.kp, roll_pid_par.ki, roll_pid_par.kd);
 			roll_motor_drive = roll_pid_val * config.dir_motor_roll;
 		}
@@ -130,8 +150,8 @@ void gimbal_tick()
 		}
 
 
-		LOG("pitch_pid_val=%lu pitch_motor_drive=%lu\r\n", pitch_pid_val, pitch_motor_drive);
-		LOG("roll_pid_val=%lu roll_motor_drive=%lu\r\n", roll_pid_val, roll_motor_drive);
+		//LOG("pitch_pid_val=%lu pitch_motor_drive=%lu\r\n", pitch_pid_val, pitch_motor_drive);
+		//LOG("roll_pid_val=%lu roll_motor_drive=%lu\r\n", roll_pid_val, roll_motor_drive);
 		// TODO:
 		// Evaluate RC Singals
 

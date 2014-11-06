@@ -90,6 +90,7 @@ void main()
 		if(config.gyro_calibrate == true){
 			LOG("running gyro offset calibration...\r\n");
 			gyro_offset_calibration();
+			LOG("config.gyro_offset[x,y,z]: %d %d %d\r\n", config.gyro_offset_x, config.gyro_offset_y, config.gyro_offset_z);
 		}
 	} else {
 		LOG("imu test failed!\r\n");
@@ -124,12 +125,13 @@ void main()
 
 	LOG("starting loop...\r\n");
 
+	int16_t axis_rotation[3];
 	while(1)
 	{
-		_delay_ms(50);
-		//gimbal_tick();
-		read_imu();
-		//(100);
+		gimbal_tick();
+		//_delay_ms(50);
+		//read_imu();
+		//_delay_ms(100);
 	}
 }
 

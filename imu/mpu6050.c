@@ -5,6 +5,7 @@
  *      Author: jcobb
  */
 
+#include <string.h>
 #include <avr/pgmspace.h>
 #include <util/delay.h>
 #include "../util/log.h"
@@ -85,12 +86,18 @@ void mpu6050_set_sleep_enabled(bool enabled)
 
 uint8_t mpu6050_get_device_id()
 {
+	uint8_t imu_buffer[IMU_BUFFER_LENGTH];
+	memset(imu_buffer, 0, sizeof(imu_buffer));
+
 	readBits(imu_address, MPU6050_RA_WHO_AM_I, MPU6050_WHO_AM_I_BIT, MPU6050_WHO_AM_I_LENGTH, imu_buffer, I2CDEV_DEFAULT_READ_TIMEOUT);
 	return imu_buffer[0];
 }
 
 void mpu6050_getmotion6(int16_t *ax, int16_t *ay, int16_t *az, int16_t *gx, int16_t *gy, int16_t *gz)
 {
+	uint8_t imu_buffer[IMU_BUFFER_LENGTH];
+	memset(imu_buffer, 0, sizeof(imu_buffer));
+
 	readBytes(imu_address, MPU6050_RA_ACCEL_XOUT_H, 14, imu_buffer, I2CDEV_DEFAULT_READ_TIMEOUT);
     *ax = (((int16_t)imu_buffer[0]) << 8) | imu_buffer[1];
     *ay = (((int16_t)imu_buffer[2]) << 8) | imu_buffer[3];
@@ -102,6 +109,9 @@ void mpu6050_getmotion6(int16_t *ax, int16_t *ay, int16_t *az, int16_t *gx, int1
 
 void mpu6050_getmotion9(int16_t *ax, int16_t *ay, int16_t *az, int16_t *gx, int16_t *gy, int16_t *gz, int16_t *mx, int16_t *my, int16_t *mz)
 {
+	uint8_t imu_buffer[IMU_BUFFER_LENGTH];
+	memset(imu_buffer, 0, sizeof(imu_buffer));
+
 	// get accel and gyro
 	mpu6050_getmotion6(ax, ay, az, gx, gy, gz);
 
@@ -128,6 +138,9 @@ void mpu6050_set_dlpf_mode(uint8_t mode)
 
 void mpu6050_get_rotation(int16_t *x, int16_t *y, int16_t *z)
 {
+	uint8_t imu_buffer[IMU_BUFFER_LENGTH];
+	memset(imu_buffer, 0, sizeof(imu_buffer));
+
 	readBytes(imu_address, MPU6050_RA_GYRO_XOUT_H, 6, imu_buffer, I2CDEV_DEFAULT_READ_TIMEOUT);
     *x = (((int16_t)imu_buffer[0]) << 8) | imu_buffer[1];
     *y = (((int16_t)imu_buffer[2]) << 8) | imu_buffer[3];
@@ -136,6 +149,9 @@ void mpu6050_get_rotation(int16_t *x, int16_t *y, int16_t *z)
 
 void mpu6050_get_acceleration(int16_t *x, int16_t *y, int16_t *z)
 {
+	uint8_t imu_buffer[IMU_BUFFER_LENGTH];
+	memset(imu_buffer, 0, sizeof(imu_buffer));
+
 	readBytes(imu_address, MPU6050_RA_ACCEL_XOUT_H, 6, imu_buffer, I2CDEV_DEFAULT_READ_TIMEOUT);
     *x = (((int16_t)imu_buffer[0]) << 8) | imu_buffer[1];
     *y = (((int16_t)imu_buffer[2]) << 8) | imu_buffer[3];

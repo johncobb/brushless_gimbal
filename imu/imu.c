@@ -10,9 +10,11 @@
 #include "imu.h"
 #include "mpu6050.h"
 #include "../util/config.h"
+#include "../util/log.h"
 #include "../math/fast_math.h"
 #include "gyro.h"
 
+static const char _tag[] PROGMEM = "imu: ";
 
 #define IMU_6050	1
 #define IMU_9150	2
@@ -61,10 +63,17 @@ void imu_read_gyros()
 	//read gyros
 	imu_get_rotation(&axis_rotation[0], &axis_rotation[1], &axis_rotation[2]);
 
+	// The following output can be confusing because it's the value before subtracting the offset
+	//LOG("axis_rotation[x,y,z]: %d %d %d\r\n", axis_rotation[0], axis_rotation[1], axis_rotation[2]);
+
+	//LOG("applying offset...\r\n");
 	axis_rotation[0] -= config.gyro_offset_x;
 	axis_rotation[1] -= config.gyro_offset_y;
 	axis_rotation[2] -= config.gyro_offset_z;
+	// The following output will be more rational due to the offsets being applied
+	//LOG("axis_rotation[x,y,z]: %d %d %d\r\n", axis_rotation[0], axis_rotation[1], axis_rotation[2]);
 
+	// set sensor orientation
 	idx = sensor_def.gyro[0].idx;
 	gyro_adc[ROLL] = axis_rotation[idx];
 	gyro_adc[ROLL] *= sensor_def.gyro[0].dir;
@@ -76,6 +85,9 @@ void imu_read_gyros()
 	idx = sensor_def.gyro[2].idx;
 	gyro_adc[YAW] = axis_rotation[idx];
 	gyro_adc[YAW] *= sensor_def.gyro[2].dir;
+	// The following output shows sensor data based on real-world orientation
+	//LOG("gyro_adc[ROLL,PITCH,YAW]: %d %d %d\r\n", gyro_adc[ROLL], gyro_adc[PITCH], gyro_adc[YAW]);
+
 
 }
 
@@ -98,10 +110,17 @@ void imu_update_gyro_attitude()
 
 	float delta_gyro_angle[3];
 
+	//LOG("gyro_adc x,y,z: %d %d %d\r\n", gyro_adc[0], gyro_adc[1], gyro_adc[2]);
+	//LOG("gyro_scale: %d\r\n");
+
 	// 43us
 	for(axis=0; axis<3; axis++){
 		delta_gyro_angle[axis] = gyro_adc[axis] * gyro_scale;
+		//LOG("delta_gyro_angle[%d] = %d\r\n", axis, (int16_t) delta_gyro_angle[axis] * 1000);
+		sprintf("delta_gyro_angle[%d] = %f\r\n", axis, 1.234567f );
 	}
+
+
 
 	rotate_v(&est_g.V, delta_gyro_angle);
 }

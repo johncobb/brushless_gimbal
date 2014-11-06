@@ -11,8 +11,10 @@
 #include "imu.h"
 #include "gyro.h"
 #include "../math/fast_math.h"
+#include "../util/config.h"
 #include "../util/clock.h"
 #include "../util/log.h"
+
 
 static const char _tag[] PROGMEM = "gyro: ";
 
@@ -120,9 +122,12 @@ void gyro_offset_calibration()
 	}
 
 	// Put results into integer
-	config.gyro_offset_x = gyro_offset[0];
-	config.gyro_offset_y = gyro_offset[1];
-	config.gyro_offset_z = gyro_offset[2];
+	config.gyro_offset_x = (int16_t) gyro_offset[0];
+	config.gyro_offset_y = (int16_t) gyro_offset[1];
+	config.gyro_offset_z = (int16_t) gyro_offset[2];
+
+	LOG("updating gyro calibration offsets...\r\n");
+	LOG("config.gyro_offset[x,y,z]: %ld\t%ld\t%ld\r\n", config.gyro_offset_x, config.gyro_offset_y, config.gyro_offset_z);
 
 	// TODO: Review
 	imu_init();
@@ -199,6 +204,7 @@ uint8_t accl_calibration()
 
 }
 
+// set default sensor orientation (sensor up)
 void init_sensor_orientation_default()
 {
 	// channel assignment
