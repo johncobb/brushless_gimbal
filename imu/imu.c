@@ -22,6 +22,18 @@ static const char _tag[] PROGMEM = "imu: ";
 
 uint8_t imu_address = IMU_ADDRESS;
 
+float gyro_scale = 0;
+int16_t gyro_adc[3] = {0,0,0};
+int16_t acc_adc[3] = {0,0,0};
+t_fp_vector est_g;
+float acc_lpf[3] = {0.0,0.0,0.0};
+float acc_mag = 0;
+bool disable_acc_gtest = false;
+
+float acc_compl_filter_const = 0;  // filter constant for complementary filter
+int16_t acc_25deg = 25;      //** TODO: check
+int32_t angle[2]    = {0,0};  // absolute angle inclination in multiple of 0.01 degree    180 deg = 18000
+
 void rotate_v(struct fp_vector * v, float *delta);
 
 void imu_init()
@@ -106,27 +118,27 @@ void rotate_v(struct fp_vector * v, float *delta)
 
 void imu_update_gyro_attitude()
 {
+	//LOG("\r\nstart imu_update_gyro_attitude:\r\n");
 	uint8_t axis;
 
 	float delta_gyro_angle[3];
 
 	//LOG("gyro_adc x,y,z: %d %d %d\r\n", gyro_adc[0], gyro_adc[1], gyro_adc[2]);
-	//LOG("gyro_scale: %d\r\n");
 
 	// 43us
 	for(axis=0; axis<3; axis++){
 		delta_gyro_angle[axis] = gyro_adc[axis] * gyro_scale;
-		//LOG("delta_gyro_angle[%d] = %d\r\n", axis, (int16_t) delta_gyro_angle[axis] * 1000);
-		sprintf("delta_gyro_angle[%d] = %f\r\n", axis, 1.234567f );
+		//LOG("delta_gyro_angle[%d] = %d\r\n", axis, (delta_gyro_angle[axis] * 1000));
 	}
 
-
-
 	rotate_v(&est_g.V, delta_gyro_angle);
+	//LOG("est_g.V.X,Y,Z: %d %d %d\r\n", (est_g.V.X * 1000), (est_g.V.Y * 1000), (est_g.V.Z * 1000))
+	//LOG("end imu_update_gyro_attitude:\r\n\r\n");
 }
 
 void imu_update_acc_attitude()
 {
+	//LOG("\r\nstart imu_update_acc_attitude:\r\n");
 	uint8_t axis;
 
 	// 80 us
@@ -136,19 +148,29 @@ void imu_update_acc_attitude()
 	if (( 36 < acc_mag && acc_mag < 196 ) || disable_acc_gtest) {
 		for (axis = 0; axis < 3; axis++) {
 		  //utilLP_float(&EstG.A[axis], accLPF[axis], AccComplFilterConst);
+
 			est_g.A[axis] = est_g.A[axis] * (1.0 - acc_compl_filter_const) + acc_lpf[axis] * acc_compl_filter_const; // note: this is different from MultiWii (wrong brackets postion in MultiWii ??.
+			//LOG("est_g.A[%d]: %d\r\n", axis, (est_g.A[axis] *1000));
 		}
 	}
+
+	//LOG("end imu_update_acc_attitude:\r\n\r\n");
 
 }
 
 void imu_get_attitude_angles()
 {
+	//LOG("\r\nstart imu_get_attitude_angles:\r\n");
+
 	// attitude of the estimated vector
 	// 200us
 	angle[ROLL] = config.angle_offset_roll + fast_arc_tan2_deg1000(est_g.V.X , sqrt(est_g.V.Z*est_g.V.Z+est_g.V.Y*est_g.V.Y));
 	// 400us
 	angle[PITCH] = config.angle_offset_pitch + fast_arc_tan2_deg1000(est_g.V.Y , est_g.V.Z);
+
+	//LOG("roll: %d pitch: %d\r\n", angle[ROLL], angle[PITCH]);
+
+	//LOG("end imu_get_attitude_angles:\r\n\r\n");
 }
 
 

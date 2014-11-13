@@ -12,10 +12,10 @@
 
 // Gimbal State
 enum gimbal_states {
- GIM_IDLE = 0,      // no PID
- GIM_UNLOCKED,    // PID on, fast ACC
- GIM_LOCKED,      // PID on, slow ACC
- GIM_ERROR        // error condition
+ GIM_IDLE = 1,      // no PID
+ GIM_UNLOCKED = 2,    // PID on, fast ACC
+ GIM_LOCKED = 3,      // PID on, slow ACC
+ GIM_ERROR = 4        // error condition
 };
 
 volatile extern int8_t gimbal_state;
@@ -44,17 +44,18 @@ volatile extern int8_t gimbal_state;
 volatile extern bool motor_update; // driven by isr
 volatile bool enable_motor_updates; // driven by state machine based on sensor settling
 
-static int32_t pitch_error_sum = 0;
-static int32_t roll_error_sum = 0;
-static int32_t pitch_error_old = 0;
-static int32_t roll_error_old = 0;
+extern int32_t pitch_error_sum;
+extern int32_t roll_error_sum;
+extern int32_t pitch_error_old;
+extern int32_t roll_error_old;
 
-static float pitch_angle_set = 0;
-static float roll_angle_set = 0;
+extern float pitch_phi_set;
+extern float roll_phi_set;
+extern float pitch_angle_set;
+extern float roll_angle_set;
 
-
-static int pitch_motor_drive = 0;
-static int roll_motor_drive = 0;
+extern int pitch_motor_drive;
+extern int roll_motor_drive;
 
 
 // *** FPV (First Person Video) Variables ***

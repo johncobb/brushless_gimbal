@@ -11,6 +11,7 @@
 #include "../math/fast_math.h"
 
 config_t config;
+float resolution_divider;
 
 void config_init()
 {

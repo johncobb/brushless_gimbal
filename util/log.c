@@ -137,8 +137,7 @@ void _debug_log(const char * prefix, const char * fmt, ...)
 	// Note that there is no vprintf_P - we have to manually direct to stdout
 	vfprintf_P(stdout, fmt, argptr);
 	va_end(argptr);
-};
-
+}
 
 void debug_test(void)
 {

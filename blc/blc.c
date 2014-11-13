@@ -13,8 +13,11 @@
 #include "../math/fast_math.h"
 #include "blc.h"
 
+#define N_SIN	256
 
 uint8_t motor_channel_map[2][3] = {{0,1,2}, {3,4,5}};
+
+int8_t pwm_sinus_array[256];
 
 void calc_sinus_array();
 
@@ -66,9 +69,9 @@ void move_motor_position_speed(uint8_t motor, uint8_t motor_pos, uint16_t max_pw
 
 void calc_sinus_array()
 {
-	for(int i=0; i<10; i++)
+	for(int i=0; i<N_SIN; i++)
 	{
-		pwm_sinus_array[i] = sin(2.0 * i / 10 * 3.14159265) * 127;
+		pwm_sinus_array[i] = sin(2.0 * i / N_SIN * 3.14159265) * 127.0;
 	}
 }
 

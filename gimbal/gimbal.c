@@ -41,18 +41,38 @@ volatile bool fpv_mode_roll = false;
 volatile bool fpv_mode_freeze_pitch = false;
 volatile bool fpv_mode_freeze_roll = false;
 
+int32_t pitch_error_sum = 0;
+int32_t roll_error_sum = 0;
+int32_t pitch_error_old = 0;
+int32_t roll_error_old = 0;
+
+float pitch_phi_set = 0;
+float roll_phi_set = 0;
+float pitch_angle_set = 0;
+float roll_angle_set = 0;
+
+int pitch_motor_drive = 0;
+int roll_motor_drive = 0;
+
+
 // battery voltage
 float voltage_bat = 0;
 float u_bat_value_f = 0;
 
 void voltage_compensation();
 
+#define MAX_DECIMALS	4
+int find_i_part(float num);
+int find_real_part(float num);
 
 enum gimbal_task {
 	READACC = 0,
 	UPDATEACC = 1,
 	VOLTAGECOMP = 2
 };
+
+pid_data_t pitch_pid_par;
+pid_data_t roll_pid_par;
 
 // task management
 static int8_t task_id = 0;
@@ -94,6 +114,7 @@ void gimbal_init()
 {
 	// resolution=131, scale = 0.000133
 	gyro_scale = 1.0 / resolution_divider/ 180.0 * PI * DT_FLOAT;
+	//LOG("gyro_scale: %d\r\n", gyro_scale*1000);
 	set_acc_time_constant(config.acc_time_constant);
 	acc_mag = ACC_1G*ACC_1G; // magnitude of 1G initially
 
@@ -121,33 +142,36 @@ void gimbal_tick()
 		if(config.enable_gyro) imu_update_gyro_attitude();
 		if(config.enable_acc) imu_update_acc_attitude();
 
-		//LOG("gyro_attitude x:y:z\t%d\t%d\t%d\r\n", (int16_t) est_g.V.X * 1000, (int16_t) est_g.V.Y * 1000, (int16_t) est_g.V.Z * 1000);
-
+		//LOG("gyro_attitude x:y:z\t%d\t%d\t%d\r\n", find_i_part(est_g.V.X), find_i_part(est_g.V.Y), find_i_part(est_g.V.Z));
 
 		imu_get_attitude_angles();
 
-		LOG("angle[ROLL,PITCH]: %d %d\r\n", (int16_t) angle[ROLL], (int16_t) angle[PITCH]);
+		//LOG("angle[ROLL,PITCH]: %d %d\r\n", (int16_t) angle[ROLL], (int16_t) angle[PITCH]);
 
 
 		// Pitch PID
 		if(fpv_mode_freeze_pitch == false){
-			//LOG("angle[PITCH]=%ld\r\n", angle[PITCH]);
 			pitch_pid_val = compute_pid(DT_INT_MS, DT_INT_INV, angle[PITCH], pitch_angle_set *1000, &pitch_error_sum, &pitch_error_old, pitch_pid_par.kp, pitch_pid_par.ki, pitch_pid_par.kd);
+			//LOG("pitch_pid_val: %d\r\n", pitch_pid_val);
 			pitch_motor_drive = pitch_pid_val * config.dir_motor_pitch;
 		}
 
 		// Roll PID
 		if(fpv_mode_freeze_roll == false){
-			//LOG("angle[ROLL]=%ld\r\n", angle[ROLL]);
 			roll_pid_val = compute_pid(DT_INT_MS, DT_INT_INV, angle[ROLL], roll_angle_set *1000, &roll_error_sum, &roll_error_old, roll_pid_par.kp, roll_pid_par.ki, roll_pid_par.kd);
+			//LOG("roll_pid_val: %d\r\n", roll_pid_val);
 			roll_motor_drive = roll_pid_val * config.dir_motor_roll;
 		}
 
 		if(enable_motor_updates){
-			//LOG("updating motors\r\n");
+
+			LOG("move_motor pitch/roll pid: %d %d pitch/roll motor: %d %d\r\n", pitch_pid_val, roll_pid_val, pitch_motor_drive, roll_motor_drive);
 			move_motor_position_speed(config.motor_number_pitch, pitch_motor_drive, max_pwm_motor_pitch_scaled);
 			move_motor_position_speed(config.motor_number_roll, roll_motor_drive, max_pwm_motor_roll_scaled);
 		}
+
+		util_lowpass_filter(&pitch_angle_set, pitch_phi_set, 0.01);
+		util_lowpass_filter(&roll_angle_set, roll_phi_set, 0.01);
 
 
 		//LOG("pitch_pid_val=%lu pitch_motor_drive=%lu\r\n", pitch_pid_val, pitch_motor_drive);
@@ -156,7 +180,7 @@ void gimbal_tick()
 		// Evaluate RC Singals
 
 		task_handler();
-		//state_handler();
+		state_handler();
 	}
 }
 
@@ -183,12 +207,23 @@ static void task_handler()
 }
 
 
+static uint8_t prev_state = 0;
+static bool log_state = false;
 
 static void state_handler()
 {
+	if(gimbal_state != prev_state)
+		log_state = true;
+	else
+		log_state = false;
+
+	prev_state = gimbal_state;
+
 	switch(gimbal_state)
 	{
 	case GIM_IDLE:
+		if(log_state)
+			LOG("GIM_IDLE\r\n");
 		enable_motor_updates = false;
 		//set_acc_tc(2.0);
 		disable_acc_gtest = true;
@@ -197,6 +232,8 @@ static void state_handler()
 		}
 		break;
 	case GIM_UNLOCKED:
+		if(log_state)
+			LOG("GIM_UNLOCKED\r\n");
 		enable_motor_updates = true;
 		disable_acc_gtest = true;
 		//set_acc_tc(2.0);
@@ -206,6 +243,8 @@ static void state_handler()
 		}
 		break;
 	case GIM_LOCKED:
+		if(log_state)
+			LOG("GIM_LOCKED\r\n");
 		enable_motor_updates = true;
 		disable_acc_gtest = false;
 //		if (altModeAccTime) { // alternate time constant mode switch
@@ -215,6 +254,7 @@ static void state_handler()
 //		          }
 		break;
 	case GIM_ERROR:
+		LOG("GIM_ERROR\r\n");
 		enable_motor_updates = false;
 		motor_power_off();
 		break;
@@ -288,5 +328,28 @@ static bool timeout()
 
 	return timeout;
 }
+
+int find_i_part(float num)
+{
+	int i = 10,j;
+	int real_part = find_real_part(num);
+	//truncate real part
+	float temp_float = num - real_part;
+
+	//adjust decimal for MAX_DECIMALS
+	for(j = 0; j< MAX_DECIMALS; j++)
+	{
+		temp_float = temp_float*i;
+	}
+	//return just the MAX_DECIMAL length of the float
+	return (int)(temp_float*i);
+}
+
+int find_real_part(float num)
+{
+	//truncate decimal
+	return (int)num;
+}
+
 
 

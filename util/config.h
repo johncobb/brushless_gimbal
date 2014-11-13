@@ -54,7 +54,7 @@ typedef struct
 extern config_t config;
 
 
-float resolution_divider;
+extern float resolution_divider;
 
 
 void config_init();

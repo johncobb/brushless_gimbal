@@ -53,13 +53,13 @@ void main()
 	debug_init(terminal_in_cb);
 	//clock_init();
 
+	LOG("\r\n\r\nbrushless gimbal starting...\r\n");
+
 	/*
 	 * load configuration
 	 */
 	LOG("config_init...\r\n");
 	config_init();
-
-	LOG("brushless gimbal started...\r\n");
 
 	/*
 	 * init pwm driver

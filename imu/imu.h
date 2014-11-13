@@ -15,15 +15,12 @@
 #define GYRO_FS_500         0x01
 #define GYRO_FS_1000        0x02
 #define GYRO_FS_2000        0x03
-
 #define MPU6050_GYRO_FS		GYRO_FS_250
 
 #define IMU_ADDRESS			0x68
 #define IMU_BUFFER_LENGTH	14
 
 extern uint8_t imu_address;
-
-
 
 enum axis_def {
 	ROLL = 0,
@@ -57,19 +54,17 @@ typedef struct sensor_orientation_def {
 
 extern t_sensor_orientation_def sensor_def;
 
-static float gyro_scale = 0;
-static int16_t gyro_adc[3] = {0,0,0};
-static int16_t acc_adc[3] = {0,0,0};
-static t_fp_vector est_g;
-static float acc_lpf[3] = {0.0,0.0,0.0};
-static float acc_mag = 0;
-static bool disable_acc_gtest = false;
+extern float gyro_scale;
+extern int16_t gyro_adc[3];
+extern int16_t acc_adc[3];
+extern t_fp_vector est_g;
+extern float acc_lpf[3];
+extern float acc_mag;
+extern bool disable_acc_gtest;
 
-static float acc_compl_filter_const = 0;  // filter constant for complementary filter
-
-static int16_t acc_25deg = 25;      //** TODO: check
-
-static int32_t angle[2]    = {0,0};  // absolute angle inclination in multiple of 0.01 degree    180 deg = 18000
+extern float acc_compl_filter_const;  // filter constant for complementary filter
+extern int16_t acc_25deg;      //** TODO: check
+extern int32_t angle[2];  // absolute angle inclination in multiple of 0.01 degree    180 deg = 18000
 
 
 

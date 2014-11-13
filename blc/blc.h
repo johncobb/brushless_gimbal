@@ -17,7 +17,7 @@
 #define PMW_B_MOTOR1	OCR1B
 #define PWM_C_MOTOR1	OCR1A
 
-int8_t pwm_sinus_array[256];
+extern int8_t pwm_sinus_array[256];
 
 void blc_init();
 void blc_tick();

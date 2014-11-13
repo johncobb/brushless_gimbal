@@ -33,6 +33,7 @@ void _debug_byte_as_hex( unsigned char byte );
 void _debug_set_rx_cb(debug_rx_cb_t);
 void _debug_set_out_cb(debug_out_cb_t);
 void _debug_hex_dump( uint8_t * data, int length);
+void _debug_log_float(float f);
 void _debug_log(const char * prefix, const char * fmt, ...);
 
 
@@ -43,13 +44,12 @@ void _debug_log(const char * prefix, const char * fmt, ...);
 #define debug_set_rx_cb(x) _debug_set_rx_cb(x);
 #define debug_set_out_cb(x) _debug_set_out_cb(x);
 #define debug_hex_dump(x,y) _debug_hex_dump(x,y);
+#define debug_log_float(x) _debug_log_float(x);
 #define debug_log(x,y,...) _debug_log(x,y,##__VA_ARGS__);
 
 
 #define LOG(fmt, ...)	{ debug_log(_tag, PSTR(fmt), ##__VA_ARGS__); }
 #define LOG_np(fmt, ...) { debug_log(0, PSTR(fmt), ##__VA_ARGS__); }
-
-
 #define LOGHEX(x,y) { debug_hex_dump(x,y); }
 
 

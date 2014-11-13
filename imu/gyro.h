@@ -25,8 +25,8 @@ typedef struct pid_data {
   int32_t   kp, ki, kd;
 } pid_data_t;
 
-pid_data_t pitch_pid_par;
-pid_data_t roll_pid_par;
+extern pid_data_t pitch_pid_par;
+extern pid_data_t roll_pid_par;
 
 //#define GRAVITY 16384.0f
 #define GRAVITY	15500.0f;
