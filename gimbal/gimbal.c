@@ -142,12 +142,7 @@ void gimbal_tick()
 		if(config.enable_gyro) imu_update_gyro_attitude();
 		if(config.enable_acc) imu_update_acc_attitude();
 
-		//LOG("gyro_attitude x:y:z\t%d\t%d\t%d\r\n", find_i_part(est_g.V.X), find_i_part(est_g.V.Y), find_i_part(est_g.V.Z));
-
 		imu_get_attitude_angles();
-
-		//LOG("angle[ROLL,PITCH]: %d %d\r\n", (int16_t) angle[ROLL], (int16_t) angle[PITCH]);
-
 
 		// Pitch PID
 		if(fpv_mode_freeze_pitch == false){

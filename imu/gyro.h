@@ -18,9 +18,6 @@
 
 #define ACC_1G 16384.0f
 
-
-
-
 typedef struct pid_data {
   int32_t   kp, ki, kd;
 } pid_data_t;

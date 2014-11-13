@@ -123,15 +123,12 @@ void main()
 	gimbal_init();
 
 
-	LOG("starting loop...\r\n");
+	LOG("starting gimbal loop...\r\n");
 
 	int16_t axis_rotation[3];
 	while(1)
 	{
 		gimbal_tick();
-		//_delay_ms(50);
-		//read_imu();
-		//_delay_ms(100);
 	}
 }
 
