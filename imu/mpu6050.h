@@ -384,5 +384,6 @@ void mpu6050_getmotion9(int16_t *ax, int16_t *ay, int16_t *az, int16_t *gx, int1
 void mpu6050_set_dlpf_mode(uint8_t mode);
 void mpu6050_get_rotation(int16_t *x, int16_t *y, int16_t *z);
 void mpu6050_get_acceleration(int16_t *x, int16_t *y, int16_t *z);
+void mpu6050_get_mag(int16_t *x, int16_t *y, int16_t *z);
 
 #endif /* MPU6050_H_ */

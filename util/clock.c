@@ -13,6 +13,14 @@
 volatile clock_time_t clock_millis;
 //volatile clock_time_t future;
 
+//http://ucexperiment.wordpress.com/2012/03/16/examination-of-the-arduino-millis-function/
+
+// 1 microsecond is 1/millionth of a second
+// clockCyclesPerMicrosecond = 8,000,000/1,000,000
+#define clock_cycles_per_microsecond  (F_CPU/1000000L)
+#define clock_cycles_to_microseconds (((a) * 1000L) / (F_CPU/1000L))
+
+
 void clock_init()
 {
 	// timer ctc mode

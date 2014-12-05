@@ -128,7 +128,9 @@ void main()
 	int16_t axis_rotation[3];
 	while(1)
 	{
-		gimbal_tick();
+		//gimbal_tick();
+		gimbal_tick2();
+		//gimbal_tick3();
 	}
 }
 

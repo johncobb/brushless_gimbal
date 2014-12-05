@@ -43,8 +43,8 @@ typedef union {
 // sensor orientation
 //********************
 typedef struct sensor_axis_def {
-  char idx;
-  int  dir;
+  char	idx;
+  int  	dir;
 } t_sensor_axis_def;
 
 typedef struct sensor_orientation_def {
@@ -76,6 +76,7 @@ void imu_read9(int16_t *ax, int16_t *ay, int16_t *az, int16_t *gx, int16_t *gy, 
 void imu_read_gyros();
 void imu_get_rotation(int16_t *x, int16_t *y, int16_t *z);
 void imu_get_acceleration(int16_t *x, int16_t *y, int16_t *z);
+void imu_get_mag(int16_t *x, int16_t *y, int16_t *z);
 void imu_set_dlpf();
 void imu_update_gyro_attitude();
 void imu_update_acc_attitude();

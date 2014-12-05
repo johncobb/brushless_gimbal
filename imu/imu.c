@@ -65,6 +65,11 @@ void imu_get_acceleration(int16_t *x, int16_t *y, int16_t *z)
 	mpu6050_get_acceleration(x, y, z);
 }
 
+void imu_get_mag(int16_t *x, int16_t *y, int16_t *z)
+{
+	mpu6050_get_mag(x, y, z);
+}
+
 void imu_read_gyros()
 {
 	int16_t axis_rotation[3];
@@ -154,12 +159,17 @@ void imu_update_acc_attitude()
 		}
 	}
 
+	//LOG("est_g.A[x,y,z]: %d %d %d\r\n", (est_g.A[0] *1000), (est_g.A[1] *1000), (est_g.A[2] *1000));
+
 	//LOG("end imu_update_acc_attitude:\r\n\r\n");
 
 }
 
 void imu_get_attitude_angles()
 {
+
+	// good up to this point
+	//LOG("est_g.V x,y,z: %d %d %d\r\n", est_g.V.X, est_g.V.Y, est_g.V.Z);
 	//LOG("\r\nstart imu_get_attitude_angles:\r\n");
 
 	// attitude of the estimated vector

@@ -53,7 +53,7 @@ all: brushless_gimbal.elf secondary-outputs
 brushless_gimbal.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,brushless_gimbal.map -mmcu=atmega328p -o "brushless_gimbal.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,brushless_gimbal.map -uvfprintf -mmcu=atmega328p -o "brushless_gimbal.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

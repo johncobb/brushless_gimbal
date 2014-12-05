@@ -157,3 +157,23 @@ void mpu6050_get_acceleration(int16_t *x, int16_t *y, int16_t *z)
     *y = (((int16_t)imu_buffer[2]) << 8) | imu_buffer[3];
     *z = (((int16_t)imu_buffer[4]) << 8) | imu_buffer[5];
 }
+
+void mpu6050_get_mag(int16_t *x, int16_t *y, int16_t *z)
+{
+	uint8_t imu_buffer[IMU_BUFFER_LENGTH];
+	memset(imu_buffer, 0, sizeof(imu_buffer));
+
+	// set i2c bypass to access magnetometer
+	writeByte(imu_address, MPU6050_RA_INT_PIN_CFG, 0x02);
+	_delay_ms(10);
+
+	// enable magnetometer
+	writeByte(MPU9150_RA_MAG_ADDRESS, 0x0A, 0x01);
+	_delay_ms(10);
+
+	// read magnetometer
+	readBytes(MPU9150_RA_MAG_ADDRESS, MPU9150_RA_MAG_XOUT_L, 6, imu_buffer, I2CDEV_DEFAULT_READ_TIMEOUT);
+	*x = (((int16_t)imu_buffer[1]) << 8) | imu_buffer[0];
+	*y = (((int16_t)imu_buffer[3]) << 8) | imu_buffer[2];
+	*z = (((int16_t)imu_buffer[5]) << 8) | imu_buffer[4];
+}

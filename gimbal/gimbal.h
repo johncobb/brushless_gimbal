@@ -66,6 +66,8 @@ volatile extern bool fpv_mode_freeze_yaw;
 
 void gimbal_init();
 void gimbal_tick();
+void gimbal_tick2();
+void gimbal_tick3();
 
 
 #endif /* GIMBAL_H_ */
