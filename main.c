@@ -129,8 +129,8 @@ void main()
 	while(1)
 	{
 		//gimbal_tick();
-		gimbal_tick2();
-		//gimbal_tick3();
+		//gimbal_tick2();
+		gimbal_tick3();
 	}
 }
 

@@ -68,6 +68,7 @@ void gimbal_init();
 void gimbal_tick();
 void gimbal_tick2();
 void gimbal_tick3();
+void gimbal_tick4();
 
 
 #endif /* GIMBAL_H_ */
