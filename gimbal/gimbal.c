@@ -7,6 +7,7 @@
  */
 #include <avr/pgmspace.h>
 #include <avr/io.h>
+#include <util/delay.h>
 #include "../util/config.h"
 #include "../util/clock.h"
 #include "../util/log.h"
@@ -258,67 +259,9 @@ void gimbal_tick2()
 
 }
 
-#define FREQ	30.0
-void gimbal_tick3()
-{
-
-
-	if(clock_time() >= f_timeout) {
-		f_timeout = clock_time() + FREQ;
-	}
-	else {
-		return;
-	}
-
-	double gyrXoffs = -281.00, gyrYoffs = 18.00, gyrZoffs = -83.00;
-
-	int error;
-	double dT;
-	double ax, ay, az;
-	clock_time_t start_time, end_time;
-
-
-	start_time = clock_time();
-
-	// global angle, gyro derived
-	double gSensitivity = 65.5; // for 500 deg/s, check data sheet
-	double gx = 0, gy = 0, gz = 0;
-	double gyrX = 0, gyrY = 0, gyrZ = 0;
-	int16_t accX = 0, accY = 0, accZ = 0;
-	int16_t g1 = 0, g2 = 0, g3 = 0;
 
 
 
-	imu_get_acceleration(&accX, &accY, &accZ);
-	imu_get_rotation(&g1, &g2, &g3);
-
-
-	// accelerometer angles
-	ay = atan2(accX, sqrt(((accY*accY) + (accZ*accZ)))) * 180/PI;
-	ax = atan2(accY, sqrt(((accX*accX) + (accZ*accZ)))) * 180/PI;
-
-	// angles based on gyro (deg/s)
-	/*
-	gx = gx + gyrX / FREQ;
-	gy = gy - gyrY / FREQ;
-	gz = gz + gyrZ / FREQ;
-	*/
-
-	gx = g1*250.0f/32768.0f; // 250 deg/s full range for gyroscope
-	gy = g2*250.0f/32768.0f; // 250 deg/s full range for gyroscope
-	gz = g3*250.0f/32768.0f; // 250 deg/s full range for gyroscope
-
-	// complementary filter
-	// tau = DT*(A)/(1-A)
-	// = 0.48sec
-	gx = gx * 0.96 + ax * 0.04;
-	gy = gy * 0.96 + ay * 0.04;
-
-	end_time = clock_time();
-
-	LOG("roll/pitch/yaw: %f:%f:%f\r\n", gx, gy, gz);
-
-}
 
 int16_t a1=0, a2=0, a3=0, g1=0, g2=0, g3=0, m1=0, m2=0, m3=0;     // raw data arrays reading
 uint16_t count = 0;  // used to control display output rate
@@ -334,43 +277,44 @@ float q[4] = {1.0f, 0.0f, 0.0f, 0.0f};    // vector to hold quaternion
 clock_time_t now = 0;
 clock_time_t last_update = 0;
 float deltat = 0.0;
+double g_sensitivity = 131.0; // for 250 deg/s, check datasheet
 
-void gimbal_tick4()
+
+
+
+void read_sensor_data();
+
+void read_sensor_data()
 {
-
-	/*
-	if(clock_time() >= f_timeout) {
-		f_timeout = clock_time() + 10;
-	}
-	else {
-		return;
-	}
-	*/
-
-
-	mcount++;
-
-
+	// *** ACCEL ***
 	imu_get_acceleration(&a1, &a2, &a3);
 
 	// apply calibration offsets
-	a1 -= config.gyro_offset_x;
-	a2 -= config.gyro_offset_y;
-	a3 -= config.gyro_offset_z;
+	a1 -= config.acc_offset_x;
+	a2 -= config.acc_offset_y;
+	a3 -= config.acc_offset_z;
+
+
 
 	ax = a1*2.0f/32768.0f; // 2 g full range for accelerometer
 	ay = a2*2.0f/32768.0f; // 2 g full range for accelerometer
 	az = a3*2.0f/32768.0f; // 2 g full range for accelerometer
+	// *** END ACCEL ***
 
+	// *** GYRO ***
 	imu_get_rotation(&g1, &g2, &g3);
+
+	// TODO: REVIEW
+	g1 = (g1 - config.gyro_offset_x) / g_sensitivity;
+	g2 = (g2 - config.gyro_offset_y) / g_sensitivity;
+	g3 = (g3 - config.gyro_offset_z) / g_sensitivity;
+
 	gx = g1*250.0f/32768.0f; // 250 deg/s full range for gyroscope
 	gy = g2*250.0f/32768.0f; // 250 deg/s full range for gyroscope
 	gz = g3*250.0f/32768.0f; // 250 deg/s full range for gyroscope
+	// *** END GYRO ***
 
-
-
-
-	// poor mans throtteling
+	// *** MAG ***
 	if (mcount > 1000/MagRate) {
 		imu_get_mag(&m1, &m2, &m3);
 		mx = m1*10.f*1229.0f/4096.0f + 18.0f; // milliGauss (1229 microTesla per 2^12 bits, 10 mG per microTesla)
@@ -378,6 +322,92 @@ void gimbal_tick4()
 		mz = m3*10.f*1229.0f/4096.0f + 270.0f;
 		mcount = 0;
 	}
+	// *** END MAG ***
+}
+
+/*
+void gimbal_tick3()
+{
+
+		mcount++;
+
+		read_sensor_data();
+
+		float accelY = atan2(ax, sqrt( pow(ay, 2) + pow(az, 2))) * 180 / M_PI;
+		float accelX = atan2(ay, sqrt( pow(ax, 2) + pow(az, 2))) * 180 / M_PI;
+
+
+
+		// Throttle output to .1x per second
+		if(clock_time() >= f_log_timeout) {
+			f_log_timeout = clock_time() + 100;
+			LOG("roll/pitch/yaw %f:%f\r\n", accelY, accelX, 0);
+		}
+}
+*/
+
+#define FREQ	30.0 // sample freq in Hz
+
+clock_time_t start_time;
+clock_time_t end_time;
+int delay;
+void gimbal_tick3()
+{
+
+
+	if(clock_time() >= f_timeout) {
+		f_timeout = clock_time() + 33;
+	}
+	else {
+		return;
+	}
+
+
+	start_time = clock_time();
+
+	mcount++;
+
+	read_sensor_data();
+
+	// angles based on accelerometer
+	float ay = atan2(ax, sqrt( pow(ay, 2) + pow(az, 2))) * 180 / M_PI;
+	float ax = atan2(ay, sqrt( pow(ax, 2) + pow(az, 2))) * 180 / M_PI;
+
+	// angles based on gyro (deg/s)
+	double gyroX = gyroX + gx / FREQ;
+	double gyroY = gyroY - gy / FREQ;
+	double gyroZ = gyroZ + gz / FREQ;
+
+	// complementary filter
+	  // tau = DT*(A)/(1-A)
+	  // = 0.48sec
+	gyroX = gyroX * 0.96 + ax * 0.04;
+	gyroY = gyroY * 0.96 + ay * 0.04;
+
+	roll = gyroY * 180.0f / M_PI;
+	pitch = gyroX * 180.0f /M_PI;
+	yaw = gyroZ * 180.0f / M_PI;
+
+
+	end_time = clock_time();
+
+
+
+
+	// Throttle output to .1x per second
+	if(clock_time() >= f_log_timeout) {
+		f_log_timeout = clock_time() + 100;
+		//LOG("roll/pitch/yaw %f:%f:%f\r\n", gyroY, gyroX, gyroZ);
+		LOG("roll/pitch/yaw %f:%f:%f\r\n", roll, pitch, yaw);
+	}
+
+	return;
+
+
+
+
+
+	// poor mans throtteling
 
 	now = clock_time();
 
@@ -392,10 +422,9 @@ void gimbal_tick4()
 	// in the LSM9DS0 sensor. This rotation can be modified to allow any convenient orientation convention.
 	// This is ok by aircraft orientation standards!
 	// Pass gyro rate as rad/s
-	MadgwickQuaternionUpdate(ax, ay, az, gx*PI/180.0f, gy*PI/180.0f, gz*PI/180.0f,  my,  mx, mz);
+	//MadgwickQuaternionUpdate(ax, ay, az, gx*PI/180.0f, gy*PI/180.0f, gz*PI/180.0f,  my,  mx, mz);
 
-	// Throttle output to .1x per second
-	if(clock_time() >= f_log_timeout) {
+
 
 
 
@@ -436,7 +465,7 @@ void gimbal_tick4()
 		log_application_data();
 		f_log_timeout = clock_time() + 100;
 
-	}
+
 }
 
 void log_application_data()
